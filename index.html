@@ -191,15 +191,15 @@
       }, [words, duration]);
 
       return (
-        <span className="inline-block overflow-hidden py-1 align-bottom">
+        <span className="inline-flex items-baseline overflow-hidden mx-1.5">
           <AnimatePresence mode="wait">
             <motion.span
               key={words[index]}
-              initial={{ opacity: 0, y: -20 }}
+              initial={{ opacity: 0, y: -15 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 20 }}
-              transition={{ duration: 0.3 }}
-              className="inline-block text-[#FDC100] underline decoration-[#78B719] decoration-4 underline-offset-8"
+              exit={{ opacity: 0, y: 15 }}
+              transition={{ duration: 0.25 }}
+              className="inline-block text-[#FDC100]"
             >
               {words[index]}
             </motion.span>
@@ -324,10 +324,10 @@
               <div className="max-w-2xl pb-2 sm:pb-6 flex flex-col items-start gap-3 w-full">
                 {/* Comparación de precio */}
                 <div className="flex items-center gap-3 text-sm sm:text-base font-bold drop-shadow-md">
-                  <span className="text-emerald-100/90 font-medium">En tienda + flete</span>
+                  <span className="text-emerald-100/90 font-medium">Nuevo + flete</span>
                   <span className="line-through text-red-400 font-extrabold">$260</span>
                   <span className="bg-red-500/30 text-red-200 text-xs font-bold px-2.5 py-0.5 rounded-full border border-red-400/40 shadow-sm backdrop-blur-sm">
-                    Ahorras $120+
+                    Ahorras $120
                   </span>
                 </div>
 
