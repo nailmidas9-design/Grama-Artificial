@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>20 m² de Grama Artificial en Caja Seca</title>
+  <title>Tienes mensaje - Grama Artificial en Caja Seca</title>
 
   <!-- Google Fonts: Bricolage Grotesque & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -240,19 +240,19 @@
       const galleryItems = [
         {
           type: "image",
-          url: "https://i.postimg.cc/nhtPrcpF/5129879032945118500-121.jpg",
+          url: "https://pub-48e5e21731d74cf7a344201ee4e87636.r2.dev/gimg1.jpg",
           title: "Vista frontal completa",
           description: "Textura homogénea y tono verde natural impecable"
         },
         {
           type: "image",
-          url: "https://i.postimg.cc/wvbhK349/5129879032945118503-121.jpg",
+          url: "https://pub-48e5e21731d74cf7a344201ee4e87636.r2.dev/gimg2.jpg",
           title: "Vista completa de las 2 piezas extendidas",
           description: "20 m² en total (2 piezas de 5m x 2m cada una)"
         },
         {
           type: "image",
-          url: "https://i.postimg.cc/HWVKPh6j/5129680974823230761-121.jpg",
+          url: "https://pub-48e5e21731d74cf7a344201ee4e87636.r2.dev/gimg3.jpg",
           title: "Desde otro ángulo",
           description: "Detalle de caída, densidad y superficie completamente plana"
         },
@@ -294,12 +294,12 @@
               <HoverBorderGradient containerClassName="shadow-lg">
                 <div className="flex items-center gap-2 text-xs sm:text-sm font-medium text-emerald-200">
                   <span className="w-2 h-2 rounded-full bg-[#78B719] animate-ping" />
-                  <span>📍 CAJA SECA • Retiro en mi casa hoy mismo</span>
+                  <span>📍 CAJA SECA • Retirala hoy mismo</span>
                 </div>
               </HoverBorderGradient>
             </header>
 
-            {/* Main Hero Content - Distribuido de extremo a extremo igual que el trampolín */}
+            {/* Main Hero Content */}
             <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-4 flex-1 flex flex-col justify-between items-start text-left">
               
               {/* BLOQUE SUPERIOR: Badge + Título Principal + Subtítulo */}
@@ -314,26 +314,23 @@
                   20 m² de Grama Artificial
                 </h1>
 
-                {/* Subtítulo reubicado DEBAJO del título y un poco más grande */}
+                {/* Subtítulo */}
                 <h2 className="text-xl sm:text-3xl md:text-4xl font-bold text-emerald-100 tracking-tight leading-tight mt-2 drop-shadow-lg">
-                  Para un espacio <WordRotate words={["verde", "limpio", "agradable"]} /> en tu hogar
+                  Dale <WordRotate words={["vida", "lujo", "color"]} /> a tu patio
                 </h2>
               </div>
 
-              {/* BLOQUE INFERIOR: Precio + Aclaratoria (Empujado hacia abajo) */}
+              {/* BLOQUE INFERIOR: Precio + Aclaratoria */}
               <div className="max-w-2xl pb-2 sm:pb-6 flex flex-col items-start gap-3 w-full">
-                {/* Comparación de precio */}
+                {/* Comparación de precio sin la etiqueta de ahorras */}
                 <div className="flex items-center gap-3 text-sm sm:text-base font-bold drop-shadow-md">
                   <span className="text-emerald-100/90 font-medium">Nuevo + flete</span>
                   <span className="line-through text-red-400 font-extrabold">$260</span>
-                  <span className="bg-red-500/30 text-red-200 text-xs font-bold px-2.5 py-0.5 rounded-full border border-red-400/40 shadow-sm backdrop-blur-sm">
-                    Ahorras $120
-                  </span>
                 </div>
 
-                {/* Pricing Callout Badge */}
+                {/* Pricing Callout Badge con "Oferta" */}
                 <div className="inline-flex items-center gap-3 sm:gap-4 bg-[#FDC100] text-[#041F18] px-5 py-2.5 sm:px-7 sm:py-3.5 rounded-2xl shadow-2xl font-black border-2 border-white/80 transition-transform hover:scale-[1.02]">
-                  <span className="text-lg sm:text-2xl font-black tracking-wide uppercase">Por solo</span>
+                  <span className="text-lg sm:text-2xl font-black tracking-wide">Oferta</span>
                   <span className="bg-[#041F18] text-[#FDC100] px-4 py-1.5 sm:px-5 sm:py-2 rounded-xl shadow-lg font-black text-2xl sm:text-4xl tracking-tight border border-emerald-500/30">
                     $140
                   </span>
@@ -355,7 +352,7 @@
             </div>
           </section>
 
-          {/* Contexto y Especificaciones */}
+          {}
           <section className="py-10 sm:py-14 px-4 sm:px-6 md:px-12 relative overflow-hidden z-10">
             <div className="max-w-4xl mx-auto relative z-10">
               
@@ -457,7 +454,7 @@
             </div>
           </section>
 
-          {/* Galería / Fotos Realistas */}
+          {}
           <section className="py-10 sm:py-14 px-4 sm:px-6 md:px-12 relative z-10">
             <div className="max-w-5xl mx-auto">
               <FadeIn>
@@ -488,6 +485,7 @@
                             src={item.url}
                             alt={item.title}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            loading="lazy"
                           />
                         ) : (
                           <div className="relative w-full h-full flex items-center justify-center bg-emerald-950">
@@ -537,7 +535,7 @@
             </div>
           </section>
 
-          {/* Por qué lo vendo */}
+          {}
           <section className="py-10 sm:py-12 px-4 sm:px-6 md:px-12 bg-[#08382C]/60 border-t border-b border-white/10 z-10 relative">
             <div className="max-w-3xl mx-auto text-center">
               <FadeIn>
@@ -610,7 +608,7 @@
             </div>
           </section>
 
-          {/* Pasos */}
+          {}
           <section className="py-10 sm:py-14 px-4 sm:px-6 md:px-12 bg-[#08382C]/50 relative z-10">
             <div className="max-w-4xl mx-auto">
               <FadeIn>
@@ -692,7 +690,7 @@
             </div>
           </section>
 
-          {/* CTA Final */}
+          {}
           <section className="relative py-12 sm:py-16 px-4 sm:px-6 md:px-12 overflow-hidden border-t-2 border-b-2 border-[#78B719]/40 z-10">
             {/* Background Video */}
             <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
@@ -773,7 +771,7 @@
             </div>
           </footer>
 
-          {}
+          {/* Lightbox Modal */}
           <AnimatePresence>
             {selectedMedia && (
               <motion.div
