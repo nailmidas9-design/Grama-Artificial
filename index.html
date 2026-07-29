@@ -275,61 +275,62 @@
             <div className="absolute inset-0 z-1 pointer-events-none backdrop-blur-[2px] bottom-blur-mask" />
 
             {/* Top Header / Location bar */}
-            <header className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-5 flex items-center justify-between">
+            <header className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 pt-4 pb-2 flex items-center justify-between">
               <HoverBorderGradient containerClassName="shadow-lg">
                 <div className="flex items-center gap-2 text-xs sm:text-sm font-medium text-emerald-200">
                   <span className="w-2 h-2 rounded-full bg-[#78B719] animate-ping" />
-                  <span>📍 Caja Seca • Retiro: En mi casa hoy mismo</span>
+                  <span>📍 CAJA SECA • Retiro en mi casa hoy mismo</span>
                 </div>
               </HoverBorderGradient>
             </header>
 
-            {/* Main Hero Content */}
-            <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 pt-6 pb-12 flex-1 flex flex-col justify-center items-start text-left">
-              <div className="max-w-2xl">
-                
+            {/* Main Hero Content - Distribuido de extremo a extremo igual que el trampolín */}
+            <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-4 flex-1 flex flex-col justify-between items-start text-left">
+              
+              {/* BLOQUE SUPERIOR: Badge + Título Principal */}
+              <div className="max-w-2xl pt-2 sm:pt-4">
                 {/* Tag Badge */}
-                <div className="inline-flex items-center gap-2 bg-[#78B719]/25 border border-[#78B719] text-[#78B719] px-3.5 py-1 rounded-full text-xs sm:text-sm font-extrabold mb-4 shadow-md backdrop-blur-md">
+                <div className="inline-flex items-center gap-2 bg-[#78B719]/25 border border-[#78B719] text-[#78B719] px-3.5 py-1 rounded-full text-xs sm:text-sm font-extrabold mb-3 shadow-md backdrop-blur-md">
                   ⭐ Estado 10/10 — Usado solo 3 veces
                 </div>
 
                 {/* H1 Title */}
-                <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight leading-none mb-4 drop-shadow-[0_4px_16px_rgba(0,0,0,0.8)]">
+                <h1 className="text-3xl sm:text-5xl md:text-7xl font-extrabold text-white tracking-tight leading-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.8)]">
                   20 m² de Grama Artificial
                 </h1>
+              </div>
 
-                {/* Subtitle with Word Rotation */}
-                <h2 className="text-xl sm:text-3xl md:text-4xl font-bold text-emerald-100 tracking-tight leading-tight mb-4 drop-shadow-md">
-                  Un espacio <WordRotate words={["verde", "limpio", "listo"]} /> en tu hogar
-                </h2>
-
-                {/* Pricing Block - Separado visualmente con mayor margen superior */}
-                <div className="mt-12 sm:mt-20 md:mt-24 mb-6 flex flex-col items-start gap-3">
-                  {/* Comparación de precio en tienda */}
-                  <div className="flex items-center gap-3 text-sm sm:text-base font-bold drop-shadow-md">
-                    <span className="text-emerald-100/90 font-medium">En tienda + flete</span>
-                    <span className="line-through text-red-400 font-extrabold">$260</span>
-                    <span className="bg-red-500/30 text-red-200 text-xs font-bold px-2.5 py-0.5 rounded-full border border-red-400/40 shadow-sm backdrop-blur-sm">
-                      Ahorras $120+
-                    </span>
-                  </div>
-
-                  {/* Pricing Callout Badge */}
-                  <div className="inline-flex items-center gap-3 sm:gap-4 bg-[#FDC100] text-[#041F18] px-5 py-2.5 sm:px-7 sm:py-3.5 rounded-2xl shadow-2xl font-black border-2 border-white/80 transition-transform hover:scale-[1.02]">
-                    <span className="text-lg sm:text-2xl font-black tracking-wide uppercase">Por solo</span>
-                    <span className="bg-[#041F18] text-[#FDC100] px-4 py-1.5 sm:px-5 sm:py-2 rounded-xl shadow-lg font-black text-2xl sm:text-4xl tracking-tight border border-emerald-500/30">
-                      $140
-                    </span>
-                  </div>
-
-                  {/* Subtexto aclaratorio */}
-                  <p className="text-xs sm:text-sm text-emerald-100/90 font-semibold drop-shadow-md flex items-center gap-2 mt-1">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#78B719] shrink-0 animate-pulse shadow-[0_0_8px_#78B719]" />
-                    <span>Trato personal directo • Sin pagos por adelantado</span>
-                  </p>
+              {/* BLOQUE INFERIOR: Precio + Subtítulo + Garantía (Empujado hacia abajo) */}
+              <div className="max-w-2xl pb-2 sm:pb-6 flex flex-col items-start gap-3 w-full">
+                {/* Comparación de precio */}
+                <div className="flex items-center gap-3 text-sm sm:text-base font-bold drop-shadow-md">
+                  <span className="text-emerald-100/90 font-medium">En tienda + flete</span>
+                  <span className="line-through text-red-400 font-extrabold">$260</span>
+                  <span className="bg-red-500/30 text-red-200 text-xs font-bold px-2.5 py-0.5 rounded-full border border-red-400/40 shadow-sm backdrop-blur-sm">
+                    Ahorras $120+
+                  </span>
                 </div>
 
+                {/* Pricing Callout Badge */}
+                <div className="inline-flex items-center gap-3 sm:gap-4 bg-[#FDC100] text-[#041F18] px-5 py-2.5 sm:px-7 sm:py-3.5 rounded-2xl shadow-2xl font-black border-2 border-white/80 transition-transform hover:scale-[1.02]">
+                  <span className="text-lg sm:text-2xl font-black tracking-wide uppercase">Por solo</span>
+                  <span className="bg-[#041F18] text-[#FDC100] px-4 py-1.5 sm:px-5 sm:py-2 rounded-xl shadow-lg font-black text-2xl sm:text-4xl tracking-tight border border-emerald-500/30">
+                    $140
+                  </span>
+                </div>
+
+                {/* Subtítulo ubicado ABAJO del precio (Exactamente como en el trampolín) */}
+                <h2 className="text-lg sm:text-2xl md:text-3xl font-bold text-emerald-100 tracking-tight leading-tight mt-1 drop-shadow-md">
+                  Para un espacio <WordRotate words={["verde", "limpio", "agradable"]} /> en tu hogar
+                </h2>
+
+                {/* Subtexto aclaratorio */}
+                <p className="text-xs sm:text-sm text-emerald-100/90 font-semibold drop-shadow-md flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#78B719] shrink-0 animate-pulse shadow-[0_0_8px_#78B719]" />
+                  <span>Trato personal directo • Sin pagos por adelantado</span>
+                </p>
               </div>
+
             </div>
 
             {/* Scroll Indicator */}
