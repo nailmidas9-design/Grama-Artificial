@@ -1,997 +1,773 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Trampolín Familiar en Venta - Caja Seca ($200 USD)</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>20 m² de Grama Artificial en Caja Seca</title>
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Varela+Round&display=swap" rel="stylesheet" />
+  <!-- Google Fonts: Bricolage Grotesque & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#084234',
+              medium: '#0D5C46',
+              extradark: '#041F18',
+              yellow: '#FDC100',
+              green: '#78B719',
+              accent: '#10B981'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Bricolage Grotesque', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- React 18, ReactDOM, Framer Motion & Babel -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
-    :root {
-      --color-primary: #2AD5FF;
-      --color-secondary: #0077FF;
-      --color-accent: #FFD200;
-      --color-bg-primary: #031728;
-      --color-dark-blue: #0A2540;
-      --color-whatsapp: #25D366;
-      --color-whatsapp-hover: #20ba5a;
-    }
-
     body {
-      font-family: 'Plus Jakarta Sans', 'Varela Round', sans-serif;
-      background-color: var(--color-bg-primary);
+      font-family: 'Inter', sans-serif;
+      background-color: #041F18;
       color: #FFFFFF;
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
     }
-
-    /* Shine Sweep Effect for Buttons */
-    @keyframes shineSweep {
-      0% { transform: translateX(-100%) rotate(25deg); }
-      35%, 100% { transform: translateX(250%) rotate(25deg); }
+    h1, h2, h3, h4, h5, h6, .font-heading {
+      font-family: 'Bricolage Grotesque', sans-serif;
     }
-
-    .animate-shine {
+    .modern-glass {
+      background: rgba(13, 92, 70, 0.35);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+    .modern-glass-card {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(8, 66, 52, 0.45) 100%);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+    }
+    .glow-yellow {
+      box-shadow: 0 0 20px rgba(253, 193, 0, 0.3);
+      transition: all 0.3s ease-in-out;
+    }
+    .glow-yellow:hover {
+      box-shadow: 0 0 38px rgba(253, 193, 0, 0.85), 0 0 15px rgba(120, 183, 25, 0.6);
+      transform: translateY(-2px) scale(1.02);
+    }
+    .btn-shine {
       position: relative;
       overflow: hidden;
     }
-
-    .animate-shine::after {
+    .btn-shine::after {
       content: '';
       position: absolute;
       top: -50%;
       left: -50%;
-      width: 60%;
+      width: 200%;
       height: 200%;
-      background: linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.45) 50%,
-        rgba(255, 255, 255, 0) 100%
-      );
-      animation: shineSweep 3.5s infinite ease-in-out;
-      pointer-events: none;
+      background: linear-gradient(60deg, transparent, rgba(255,255,255,0.35), transparent);
+      transform: rotate(30deg) translateX(-100%);
+      transition: transform 0.6s ease;
     }
-
-    /* Liquid Glassmorphism Styles */
-    .liquid-glass {
-      background: rgba(10, 37, 64, 0.78);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(42, 213, 255, 0.25);
-      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.15), 0 20px 40px rgba(0, 0, 0, 0.4);
+    .btn-shine:hover::after {
+      transform: rotate(30deg) translateX(100%);
     }
-
-    /* Interactive Mouse Spotlight Glow Effect for Cards */
-    .glow-card {
-      position: relative;
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+    .left-gradient-mask {
+      background: linear-gradient(90deg, rgba(4,31,24,0.85) 0%, rgba(4,31,24,0.5) 50%, rgba(4,31,24,0.15) 100%);
     }
-
-    .glow-card::before {
-      content: '';
-      position: absolute;
-      inset: -1px;
-      border-radius: inherit;
-      background: radial-gradient(350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(42, 213, 255, 0.28), transparent 65%);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .glow-card:hover {
-      border-color: rgba(42, 213, 255, 0.75) !important;
-      box-shadow: 0 14px 35px -5px rgba(0, 0, 0, 0.6), 0 0 25px rgba(42, 213, 255, 0.35), inset 0 0 15px rgba(42, 213, 255, 0.15) !important;
-      transform: translateY(-4px);
-    }
-
-    .glow-card:hover::before {
-      opacity: 1;
-    }
-
-    .glow-card > * {
-      position: relative;
-      z-index: 2;
-    }
-
-    .whatsapp-btn-glow {
-      box-shadow: 0 0 25px rgba(37, 211, 102, 0.5);
-      transition: all 0.3s ease;
-    }
-
-    .whatsapp-btn-glow:hover {
-      box-shadow: 0 0 40px rgba(37, 211, 102, 0.85), 0 0 15px rgba(255, 255, 255, 0.6);
-      transform: translateY(-2px) scale(1.03);
-    }
-
-    /* Boomerang Zoom Animation for Hero Background Image */
-    @keyframes boomerangZoom {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.10); }
-      100% { transform: scale(1); }
-    }
-
-    .animate-boomerang-zoom {
-      animation: boomerangZoom 18s ease-in-out infinite;
-      will-change: transform;
-    }
-
-    /* Scroll Reveal Animations */
-    .reveal-item {
-      opacity: 0;
-      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
-      will-change: transform, opacity, filter;
-    }
-
-    .reveal-fade-up {
-      transform: translateY(30px);
-      filter: blur(6px);
-    }
-
-    .reveal-scale-up {
-      transform: scale(0.92);
-      filter: blur(6px);
-    }
-
-    .reveal-item.is-revealed {
-      opacity: 1;
-      transform: translateY(0) translateX(0) scale(1);
-      filter: blur(0px);
-    }
-
-    /* Custom scrollbar */
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #031728;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #0077FF;
-      border-radius: 4px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #2AD5FF;
+    .bottom-blur-mask {
+      mask-image: linear-gradient(to top, black 0%, transparent 60%);
+      -webkit-mask-image: linear-gradient(to top, black 0%, transparent 60%);
     }
   </style>
 </head>
-<body class="min-h-screen bg-[#031728] text-white selection:bg-[#2AD5FF] selection:text-[#031728] relative antialiased">
+<body class="selection:bg-[#78B719] selection:text-white antialiased overflow-x-hidden">
 
-  <!-- Top Reading Scroll Progress Bar -->
-  <div id="scroll-progress-bar" class="fixed top-0 left-0 h-1.5 bg-gradient-to-r from-[#2AD5FF] via-[#0077FF] to-[#FFD200] z-50 transition-all duration-150 w-0"></div>
+  <div id="root"></div>
 
-  <!-- =========================================================================
-      SECTION 1: HERO SECTION
-     ========================================================================= -->
-  <section class="relative min-h-[520px] sm:min-h-[640px] flex flex-col justify-between p-4 sm:p-8 md:p-12 overflow-hidden z-10 border-b border-white/10">
-    
-    <!-- Hero Background Image con alta luminosidad y encuadre perfecto -->
-    <div class="absolute inset-0 z-0 overflow-hidden bg-[#020F1B] pointer-events-none">
-      <img
-        src="https://i.postimg.cc/dV0SYNRV/1785089625833.png"
-        alt="Trampolín familiar en Caja Seca"
-        referrerpolicy="no-referrer"
-        class="w-full h-full object-cover object-[70%_25%] sm:object-center animate-boomerang-zoom opacity-95 filter brightness-105"
-      />
-      <div class="absolute inset-0 bg-gradient-to-t from-[#031728] via-[#031728]/15 to-black/25 pointer-events-none"></div>
-      <div class="absolute inset-0 bg-gradient-to-r from-[#031728]/50 via-[#031728]/15 to-transparent pointer-events-none"></div>
-    </div>
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+    const { motion, AnimatePresence } = Motion;
 
-    <!-- Container Top: Navigation Header + Title Block -->
-    <div class="relative z-30 max-w-6xl mx-auto w-full">
-      
-      <!-- Navigation Header -->
-      <nav class="flex items-center justify-between pt-2 pb-3">
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-[#2AD5FF]/50 shadow-lg">
-          <span class="text-[#FFD200] shrink-0 animate-bounce text-sm">📍</span>
-          <span class="text-xs sm:text-sm font-black text-white tracking-wider uppercase">Caja Seca</span>
+    const WHATSAPP_NUMBER = "584142298507"; 
+    const WHATSAPP_MSG = encodeURIComponent(
+      "Hola. Vi la grama artificial. Quiero coordinar para ir a verla hoy."
+    );
+    const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`;
+
+    function WhatsAppIcon({ className = "w-6 h-6" }) {
+      return (
+        <svg className={className} fill="currentColor" viewBox="0 0 24 24">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.063 2.876 1.21 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.99c-.002 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c-.001 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+      );
+    }
+
+    function HoverBorderGradient({ children, className = "", containerClassName = "", onClick, ...props }) {
+      const [hovered, setHovered] = useState(false);
+      const [direction, setDirection] = useState('BOTTOM');
+
+      const directions = ['TOP', 'LEFT', 'BOTTOM', 'RIGHT'];
+
+      const movingMap = {
+        TOP: 'radial-gradient(20.7% 50% at 50% 0%, #FDC100 0%, rgba(253, 193, 0, 0) 100%)',
+        LEFT: 'radial-gradient(16.6% 43.1% at 0% 50%, #78B719 0%, rgba(120, 183, 25, 0) 100%)',
+        BOTTOM: 'radial-gradient(20.7% 50% at 50% 100%, #10B981 0%, rgba(16, 185, 129, 0) 100%)',
+        RIGHT: 'radial-gradient(16.2% 41.2% at 100% 50%, #FDC100 0%, rgba(253, 193, 0, 0) 100%)',
+      };
+
+      const highlight = 'radial-gradient(75% 180% at 50% 50%, #78B719 0%, rgba(253, 193, 0, 0) 100%)';
+
+      useEffect(() => {
+        if (!hovered) {
+          const interval = setInterval(() => {
+            setDirection((prev) => {
+              const idx = directions.indexOf(prev);
+              return directions[(idx + 1) % directions.length];
+            });
+          }, 1200);
+          return () => clearInterval(interval);
+        }
+      }, [hovered]);
+
+      return (
+        <div
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+          onClick={onClick}
+          className={`relative flex h-min w-fit flex-col items-center justify-center overflow-visible rounded-full border border-white/20 bg-[#084234]/60 p-px backdrop-blur-md transition duration-500 cursor-pointer ${containerClassName}`}
+          {...props}
+        >
+          <div className={`z-10 w-auto rounded-[inherit] px-5 py-2.5 text-white ${className}`}>
+            {children}
+          </div>
+          <motion.div
+            className="absolute inset-0 z-0 flex-none overflow-hidden rounded-[inherit]"
+            style={{
+              filter: 'blur(3px)',
+              position: 'absolute',
+              width: '100%',
+              height: '100%',
+            }}
+            initial={{ background: movingMap[direction] }}
+            animate={{
+              background: hovered ? [movingMap[direction], highlight] : movingMap[direction],
+            }}
+            transition={{ ease: 'linear', duration: 0.8 }}
+          />
+          <div className="absolute inset-0.5 z-1 flex-none rounded-[100px] bg-[#041F18]/80" />
         </div>
-      </nav>
+      );
+    }
 
-      <!-- Hero Top Title Block -->
-      <div class="pt-2 max-w-2xl text-left">
-        <div class="reveal-item reveal-fade-up">
-          <div class="inline-flex items-center gap-2 bg-[#FFD200]/20 border border-[#FFD200] text-[#FFD200] px-3.5 py-1 rounded-full text-xs sm:text-sm font-black mb-3 shadow-md backdrop-blur-sm">
-            ⭐ Estado 10/10 — Usado 3 veces
-          </div>
+    function WordRotate({ words, duration = 2200 }) {
+      const [index, setIndex] = useState(0);
 
-          <h1 class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.1] drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)] mb-3">
-            Trampolín Familiar <br class="hidden sm:inline" />de 8 Pies (2.44 m)
-          </h1>
-        </div>
-      </div>
+      useEffect(() => {
+        const interval = setInterval(() => {
+          setIndex((prevIndex) => (prevIndex + 1) % words.length);
+        }, duration);
+        return () => clearInterval(interval);
+      }, [words, duration]);
 
-    </div>
-
-    <!-- Hero Bottom Price Block -->
-    <div class="relative z-20 max-w-6xl mx-auto w-full pt-4 pb-2 mt-auto">
-      <div class="max-w-2xl text-left">
-        <div class="reveal-item reveal-fade-up">
-          <div class="flex items-center gap-3 mb-2 text-base sm:text-lg font-bold">
-            <span class="text-gray-300">Nuevo</span>
-            <span class="line-through text-red-400 font-extrabold text-base sm:text-lg drop-shadow-sm">$350 en tienda</span>
-          </div>
-
-          <!-- Price Callout in Hero -->
-          <div class="reveal-item reveal-scale-up mb-3">
-            <div class="inline-flex items-center gap-3 bg-[#FFD200] text-[#031728] px-5 py-2.5 sm:px-7 sm:py-3.5 rounded-2xl shadow-2xl font-black border-2 border-white/80">
-              <span class="text-lg sm:text-2xl">Por solo</span>
-              <span class="bg-[#031728] text-[#FFD200] px-4 py-1.5 rounded-xl shadow-md font-extrabold text-2xl sm:text-4xl tracking-tight">
-                $200
-              </span>
-            </div>
-          </div>
-
-          <p class="text-base sm:text-xl text-gray-100 leading-relaxed font-semibold drop-shadow-md">
-            <strong class="text-[#2AD5FF]">Un parque infantil en casa, para que salten de emoción.</strong>
-          </p>
-        </div>
-      </div>
-    </div>
-
-  </section>
-
-  <!-- =========================================================================
-      GUARANTEE & QUICK SPECS BLOCK
-     ========================================================================= -->
-  <section id="garantia" class="relative z-20 py-10 px-4 sm:px-8 md:px-12 bg-[#061D30] border-b border-white/10">
-    <div class="max-w-5xl mx-auto">
-      <div class="reveal-item reveal-scale-up">
-        <div class="liquid-glass glow-card rounded-3xl p-6 sm:p-10 shadow-2xl border border-[#2AD5FF]/40 text-white backdrop-blur-xl">
-          
-          <div class="mb-6 pb-6 border-b border-white/15">
-            <span class="inline-flex items-center gap-2 bg-[#2AD5FF]/20 border border-[#2AD5FF]/40 text-[#2AD5FF] px-4 py-1.5 rounded-xl text-xs sm:text-sm font-black mb-3">
-              Trato en Directo y Seguro
-            </span>
-
-            <p class="text-sm sm:text-lg text-gray-200 leading-relaxed font-medium mt-1">
-              <strong class="text-white font-bold">No pagas nada por adelantado:</strong> Vienes a mi casa en Caja Seca, lo revisas completo y si te convence, te lo llevas.
-            </p>
-          </div>
-
-          <!-- Quick Specs List -->
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm sm:text-base">
-            
-            <div class="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/10">
-              <span class="text-3xl shrink-0">📐</span>
-              <div>
-                <strong class="text-[#2AD5FF] block mb-0.5 text-base sm:text-lg font-bold">Diámetro:</strong>
-                <span class="text-gray-200 font-medium">8 pies (2.44 metros)</span>
-              </div>
-            </div>
-
-            <div class="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/10">
-              <span class="text-3xl shrink-0">⚖️</span>
-              <div>
-                <strong class="text-[#FFD200] block mb-0.5 text-base sm:text-lg font-bold">Soporte de peso:</strong>
-                <span class="text-gray-200 font-medium">180 kg (3 a 4 niños)</span>
-              </div>
-            </div>
-
-            <div class="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/10">
-              <span class="text-3xl shrink-0">🚗</span>
-              <div>
-                <strong class="text-[#25D366] block mb-0.5 text-base sm:text-lg font-bold">Transporte:</strong>
-                <span class="text-gray-200 font-medium">Desarmado, cabe en cualquier carro</span>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================================
-      SECTION 2: FOTOS Y VIDEO DEL TRAMPOLÍN
-     ========================================================================= -->
-  <section id="fotos" class="relative z-10 py-16 sm:py-20 px-4 sm:px-8 md:px-12 bg-[#031728] border-t border-white/10">
-    <div class="max-w-5xl mx-auto">
-      
-      <div class="reveal-item reveal-fade-up text-center mb-10">
-        <span class="inline-block px-4 py-1.5 rounded-full bg-[#0077FF]/30 border border-[#2AD5FF]/40 text-[#2AD5FF] text-xs sm:text-sm uppercase font-extrabold tracking-widest mb-3">
-          Fotos y Videos Reales
+      return (
+        <span className="inline-block overflow-hidden py-1 align-bottom">
+          <AnimatePresence mode="wait">
+            <motion.span
+              key={words[index]}
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              transition={{ duration: 0.3 }}
+              className="inline-block text-[#FDC100] underline decoration-[#78B719] decoration-4 underline-offset-8"
+            >
+              {words[index]}
+            </motion.span>
+          </AnimatePresence>
         </span>
-        <h2 class="text-3xl sm:text-5xl font-extrabold text-white">
-          Míralo bien
-        </h2>
-        <p class="text-gray-300 text-sm sm:text-lg mt-3 max-w-2xl mx-auto font-medium">
-          Te lo entrego desarmado, en su caja, tal cual. Toca cualquier imagen para ampliar.
-        </p>
-      </div>
+      );
+    }
 
-      <!-- Media Grid -->
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
-        
-        <!-- Gallery Item 0 (Photo) -->
-        <div class="reveal-item reveal-scale-up">
-          <div 
-            onclick="openLightbox(0)"
-            class="group relative liquid-glass glow-card rounded-2xl overflow-hidden border border-white/15 cursor-pointer aspect-square bg-[#0A2540]/40 shadow-lg"
-          >
-            <img src="https://i.postimg.cc/XJkNnbXB/817Qi4Og61L.jpg" alt="Lona tensa e impecable" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-all p-3.5 flex flex-col justify-end pointer-events-none z-10">
-              <p class="text-xs sm:text-sm text-white font-bold leading-tight">Lona tensa e impecable</p>
-              <span class="text-xs text-[#2AD5FF] font-extrabold flex items-center gap-1 mt-1">🔍 Ampliar</span>
+    function App() {
+      const [selectedMedia, setSelectedMedia] = useState(null);
+      const [openFaq, setOpenFaq] = useState(null);
+
+      useEffect(() => {
+        if (window.lucide) {
+          window.lucide.createIcons();
+        }
+      }, [selectedMedia, openFaq]);
+
+      const toggleFaq = (idx) => {
+        setOpenFaq(openFaq === idx ? null : idx);
+      };
+
+      const galleryItems = [
+        {
+          type: "image",
+          url: "https://i.postimg.cc/nhtPrcpF/5129879032945118500-121.jpg",
+          title: "Vista frontal completa",
+          description: "Textura homogénea y tono verde natural impecable"
+        },
+        {
+          type: "image",
+          url: "https://i.postimg.cc/wvbhK349/5129879032945118503-121.jpg",
+          title: "Vista completa de las 2 piezas extendidas",
+          description: "20 m² en total (2 piezas de 5m x 2m cada una)"
+        },
+        {
+          type: "image",
+          url: "https://i.postimg.cc/HWVKPh6j/5129680974823230761-121.jpg",
+          title: "Desde otro ángulo",
+          description: "Detalle de caída, densidad y superficie completamente plana"
+        },
+        {
+          type: "video",
+          url: "https://pub-48e5e21731d74cf7a344201ee4e87636.r2.dev/grass dia.mp4",
+          title: "Video real del producto",
+          description: "Mírala en video a luz de día sin filtros ni ediciones"
+        }
+      ];
+
+      return (
+        <div className="min-h-screen bg-gradient-to-b from-[#041F18] via-[#08382C] to-[#041F18] text-white relative">
+
+          {/* Ambient Lighting Background Spheres */}
+          <div className="fixed top-20 left-10 w-96 h-96 bg-[#78B719]/10 rounded-full blur-[120px] pointer-events-none z-0" />
+          <div className="fixed top-1/2 right-10 w-96 h-96 bg-[#FDC100]/10 rounded-full blur-[140px] pointer-events-none z-0" />
+
+          {}
+          <section className="relative min-h-screen w-full flex flex-col justify-between overflow-hidden bg-[#041F18] z-10 pb-12">
+            {/* Background Video */}
+            <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover scale-105 filter brightness-105 contrast-105"
+              >
+                <source src="https://pub-48e5e21731d74cf7a344201ee4e87636.r2.dev/nuevo.mp4" type="video/mp4" />
+              </video>
+              <div className="absolute inset-0 left-gradient-mask" />
             </div>
-          </div>
-        </div>
 
-        <!-- Gallery Item 1 (Video) -->
-        <div class="reveal-item reveal-scale-up">
-          <div 
-            onclick="openLightbox(1)"
-            class="group relative liquid-glass glow-card rounded-2xl overflow-hidden border border-white/15 cursor-pointer aspect-square bg-[#0A2540]/40 shadow-lg"
-          >
-            <div class="relative w-full h-full bg-black">
-              <video src="https://pub-48e5e21731d74cf7a344201ee4e87636.r2.dev/trampolin.mp4" autoplay loop muted playsinline class="w-full h-full object-cover pointer-events-none scale-105"></video>
-              <div class="absolute top-2.5 left-2.5 z-10 bg-[#FFD200] text-[#031728] font-black text-xs px-2.5 py-1 rounded-md flex items-center gap-1 shadow-md">
-                <span>▶ VIDEO DEMO</span>
+            <div className="absolute inset-0 z-1 pointer-events-none backdrop-blur-[2px] bottom-blur-mask" />
+
+            {/* Top Header / Location bar */}
+            <header className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-5 flex items-center justify-between">
+              <HoverBorderGradient containerClassName="shadow-lg">
+                <div className="flex items-center gap-2 text-xs sm:text-sm font-medium text-emerald-200">
+                  <span className="w-2 h-2 rounded-full bg-[#78B719] animate-ping" />
+                  <span>📍 Caja Seca • Retiro: En mi casa hoy mismo</span>
+                </div>
+              </HoverBorderGradient>
+            </header>
+
+            {/* Main Hero Content */}
+            <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 pt-6 pb-12 flex-1 flex flex-col justify-center items-start text-left">
+              <div className="max-w-2xl">
+                
+                {/* Tag Badge */}
+                <div className="inline-flex items-center gap-2 bg-[#78B719]/25 border border-[#78B719] text-[#78B719] px-3.5 py-1 rounded-full text-xs sm:text-sm font-extrabold mb-4 shadow-md backdrop-blur-md">
+                  ⭐ Estado 10/10 — Usado solo 3 veces
+                </div>
+
+                {/* H1 Title */}
+                <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight leading-none mb-4 drop-shadow-[0_4px_16px_rgba(0,0,0,0.8)]">
+                  20 m² de Grama Artificial
+                </h1>
+
+                {/* Subtitle with Word Rotation */}
+                <h2 className="text-xl sm:text-3xl md:text-4xl font-bold text-emerald-100 tracking-tight leading-tight mb-4 drop-shadow-md">
+                  Un espacio <WordRotate words={["verde", "limpio", "listo"]} /> en tu hogar
+                </h2>
+
+                {/* Pricing Block - Separado visualmente con mayor margen superior */}
+                <div className="mt-12 sm:mt-20 md:mt-24 mb-6 flex flex-col items-start gap-3">
+                  {/* Comparación de precio en tienda */}
+                  <div className="flex items-center gap-3 text-sm sm:text-base font-bold drop-shadow-md">
+                    <span className="text-emerald-100/90 font-medium">En tienda + flete</span>
+                    <span className="line-through text-red-400 font-extrabold">$260</span>
+                    <span className="bg-red-500/30 text-red-200 text-xs font-bold px-2.5 py-0.5 rounded-full border border-red-400/40 shadow-sm backdrop-blur-sm">
+                      Ahorras $120+
+                    </span>
+                  </div>
+
+                  {/* Pricing Callout Badge */}
+                  <div className="inline-flex items-center gap-3 sm:gap-4 bg-[#FDC100] text-[#041F18] px-5 py-2.5 sm:px-7 sm:py-3.5 rounded-2xl shadow-2xl font-black border-2 border-white/80 transition-transform hover:scale-[1.02]">
+                    <span className="text-lg sm:text-2xl font-black tracking-wide uppercase">Por solo</span>
+                    <span className="bg-[#041F18] text-[#FDC100] px-4 py-1.5 sm:px-5 sm:py-2 rounded-xl shadow-lg font-black text-2xl sm:text-4xl tracking-tight border border-emerald-500/30">
+                      $140
+                    </span>
+                  </div>
+
+                  {/* Subtexto aclaratorio */}
+                  <p className="text-xs sm:text-sm text-emerald-100/90 font-semibold drop-shadow-md flex items-center gap-2 mt-1">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#78B719] shrink-0 animate-pulse shadow-[0_0_8px_#78B719]" />
+                    <span>Trato personal directo • Sin pagos por adelantado</span>
+                  </p>
+                </div>
+
               </div>
             </div>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-all p-3.5 flex flex-col justify-end pointer-events-none z-10">
-              <p class="text-xs sm:text-sm text-white font-bold leading-tight">Video real</p>
-              <span class="text-xs text-[#2AD5FF] font-extrabold flex items-center gap-1 mt-1">🔍 Ampliar</span>
-            </div>
-          </div>
-        </div>
 
-        <!-- Gallery Item 2 (Photo) -->
-        <div class="reveal-item reveal-scale-up">
-          <div 
-            onclick="openLightbox(2)"
-            class="group relative liquid-glass glow-card rounded-2xl overflow-hidden border border-white/15 cursor-pointer aspect-square bg-[#0A2540]/40 shadow-lg"
-          >
-            <img src="https://i.postimg.cc/CLYcCG78/5129680974823230758-121.jpg" alt="Red de seguridad protectora 360°" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-all p-3.5 flex flex-col justify-end pointer-events-none z-10">
-              <p class="text-xs sm:text-sm text-white font-bold leading-tight">No se van a querer bajar</p>
-              <span class="text-xs text-[#2AD5FF] font-extrabold flex items-center gap-1 mt-1">🔍 Ampliar</span>
+            {/* Scroll Indicator */}
+            <div className="relative z-10 w-full py-2 text-center text-xs text-emerald-300/80 flex flex-col items-center gap-1">
+              <span>Desliza para conocer los detalles exactos</span>
+              <i data-lucide="chevron-down" className="w-4 h-4 animate-bounce text-[#FDC100]"></i>
             </div>
-          </div>
-        </div>
+          </section>
 
-        <!-- Gallery Item 3 (Video 3D) -->
-        <div class="reveal-item reveal-scale-up">
-          <div 
-            onclick="openLightbox(3)"
-            class="group relative liquid-glass glow-card rounded-2xl overflow-hidden border border-white/15 cursor-pointer aspect-square bg-[#0A2540]/40 shadow-lg"
-          >
-            <div class="relative w-full h-full bg-black">
-              <video src="https://pub-48e5e21731d74cf7a344201ee4e87636.r2.dev/tresd.mp4" autoplay loop muted playsinline class="w-full h-full object-cover pointer-events-none scale-105"></video>
-              <div class="absolute top-2.5 left-2.5 z-10 bg-[#FFD200] text-[#031728] font-black text-xs px-2.5 py-1 rounded-md flex items-center gap-1 shadow-md">
-                <span>▶ ESTRUCTURA</span>
+          {}
+          <section className="py-20 px-4 sm:px-6 md:px-12 relative overflow-hidden z-10">
+            <div className="max-w-4xl mx-auto relative z-10">
+              
+              {/* Context Story Card */}
+              <div className="modern-glass-card rounded-2xl p-6 sm:p-8 mb-12 shadow-2xl">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2.5 bg-[#78B719]/20 rounded-xl text-[#78B719]">
+                    <i data-lucide="sparkles" className="w-6 h-6"></i>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white">
+                    Tiempo de uso 
+                  </h3>
+                </div>
+                <p className="text-emerald-100/90 text-base sm:text-lg leading-relaxed">
+                  Se usó solo 3 ocasiones para armar una noche de cine al aire libre que no se repitió. Desde entonces está guardada bajo techo, limpia y lista para que alguien le de un buen uso en su patio.
+                </p>
+              </div>
+
+              {/* Specs Header */}
+              <div className="text-center mb-10">
+                <span className="text-[#FDC100] text-xs font-bold tracking-widest uppercase">
+                  Transparencia ante todo
+                </span>
+                <h2 className="text-2xl sm:text-4xl font-extrabold text-white mt-2">
+                  Datos que necesitas saber
+                </h2>
+              </div>
+
+              {/* Specs Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                <div className="modern-glass p-5 rounded-2xl hover:border-[#78B719]/50 transition-all">
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 bg-[#FDC100]/20 text-[#FDC100] rounded-xl shrink-0">
+                      <i data-lucide="ruler" className="w-6 h-6"></i>
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-white text-lg mb-1">📐 Medidas</h3>
+                      <p className="text-emerald-100/80 text-sm leading-relaxed">
+                        <strong>2 piezas de 5 metros de largo × 2 metros de ancho</strong> (20 m² en total).
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="modern-glass p-5 rounded-2xl hover:border-[#78B719]/50 transition-all">
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 bg-[#78B719]/20 text-[#78B719] rounded-xl shrink-0">
+                      <i data-lucide="leaf" className="w-6 h-6"></i>
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-white text-lg mb-1">🌿 Fibra</h3>
+                      <p className="text-emerald-100/80 text-sm leading-relaxed">
+                        <strong>15 mm de altura</strong>, densa, fácil de barrer.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="modern-glass p-5 rounded-2xl hover:border-amber-500/50 transition-all">
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 bg-amber-500/20 text-amber-300 rounded-xl shrink-0">
+                      <i data-lucide="cloud-rain" className="w-6 h-6"></i>
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-white text-lg mb-1">🌧️ Uso</h3>
+                      <p className="text-emerald-100/80 text-sm leading-relaxed">
+                        Siendo honesto <strong>no la recomiendo que se moje en la lluvia</strong>.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="modern-glass p-5 rounded-2xl hover:border-emerald-400 transition-all">
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 bg-emerald-500/20 text-emerald-300 rounded-xl shrink-0">
+                      <i data-lucide="shield-check" className="w-6 h-6"></i>
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-white text-lg mb-1">🤝 Trato 100% seguro</h3>
+                      <p className="text-emerald-100/80 text-sm leading-relaxed">
+                        <strong>Tú no pagas nada por adelantado.</strong> Vienes a mi casa en Caja Seca, la desenrollas, la revisas y solo pagas si te convence.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-all p-3.5 flex flex-col justify-end pointer-events-none z-10">
-              <p class="text-xs sm:text-sm text-white font-bold leading-tight">En 3D</p>
-              <span class="text-xs text-[#2AD5FF] font-extrabold flex items-center gap-1 mt-1">🔍 Ampliar</span>
+          </section>
+
+          {}
+          <section className="py-20 px-4 sm:px-6 md:px-12 relative z-10">
+            <div className="max-w-5xl mx-auto">
+              <div className="text-center max-w-3xl mx-auto mb-12">
+                <span className="text-[#78B719] text-xs font-bold tracking-widest uppercase">
+                  Sin filtros, Sin edición
+                </span>
+                <h2 className="text-2xl sm:text-4xl font-extrabold text-white mt-2 mb-4">
+                  Mírala tal como esta
+                </h2>
+                <p className="text-emerald-100/80 text-base leading-relaxed">
+                  Así se veía la grama en su último uso. Fíjate en el color, la densidad y cómo queda completamente plana y pareja al extenderla.
+                </p>
+              </div>
+
+              {/* Gallery Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {galleryItems.map((item, index) => (
+                  <div
+                    key={index}
+                    onClick={() => setSelectedMedia(item)}
+                    className="group cursor-pointer relative modern-glass-card rounded-2xl overflow-hidden hover:border-[#FDC100] transition-all duration-300 flex flex-col justify-between shadow-xl"
+                  >
+                    <div className="relative aspect-video sm:aspect-square w-full overflow-hidden bg-black/60">
+                      {item.type === "image" ? (
+                        <img
+                          src={item.url}
+                          alt={item.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                      ) : (
+                        <div className="relative w-full h-full flex items-center justify-center bg-emerald-950">
+                          <video src={item.url} autoPlay loop muted playsInline className="w-full h-full object-cover opacity-70" />
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="p-4 bg-[#FDC100] text-[#041F18] rounded-full shadow-2xl group-hover:scale-110 transition-transform">
+                              <i data-lucide="play" className="w-8 h-8 fill-current"></i>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+
+                      <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs font-semibold">
+                        <span className="flex items-center gap-1.5 bg-black/60 px-2.5 py-1 rounded-md backdrop-blur-md">
+                          <i data-lucide={item.type === "image" ? "eye" : "play"} className="w-3.5 h-3.5 text-[#FDC100]"></i>
+                          <span>{item.type === "image" ? "Ver Foto" : "Video"}</span>
+                        </span>
+                        <i data-lucide="maximize-2" className="w-4 h-4 text-white/80 group-hover:text-[#FDC100] transition-colors"></i>
+                      </div>
+                    </div>
+
+                    <div className="p-4">
+                      <h4 className="font-bold text-white text-sm mb-1">{item.title}</h4>
+                      <p className="text-emerald-100/70 text-xs">{item.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Gallery CTA */}
+              <div className="mt-10 text-center">
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="glow-yellow btn-shine inline-flex items-center justify-center gap-3 bg-[#FDC100] hover:bg-[#78B719] text-[#041F18] hover:text-white font-extrabold text-base sm:text-lg px-8 py-4 rounded-full shadow-2xl transition-all duration-300"
+                >
+                  <WhatsAppIcon className="w-6 h-6" />
+                  <span>Si quiero verla</span>
+                </a>
+              </div>
             </div>
-          </div>
+          </section>
+
+          {}
+          <section className="py-16 px-4 sm:px-6 md:px-12 bg-[#08382C]/60 border-t border-b border-white/10 z-10 relative">
+            <div className="max-w-3xl mx-auto text-center">
+        <div className="inline-block bg-[#FDC100]/20 text-[#FDC100] px-4 py-1.5 rounded-full mb-4 border border-[#FDC100]/40 text-xs font-bold tracking-wider uppercase">
+         Siendo honesto
         </div>
-
-      </div>
-
-      <!-- Action Button -->
-      <div class="reveal-item reveal-fade-up text-center">
-        <a 
-          href="https://wa.me/584142298507?text=%C2%A1Hola!%20Vi%20las%20fotos%20del%20trampol%C3%ADn%20en%20Caja%20Seca.%20Quiero%20ir%20a%20verlo%20hoy."
-          target="_blank"
-          rel="noopener noreferrer"
-          class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#20ba5a] text-[#031728] font-extrabold text-base sm:text-xl px-10 py-5 rounded-full whatsapp-btn-glow transition-all animate-shine shadow-2xl"
-        >
-          <svg class="w-7 h-7 fill-[#031728] shrink-0" viewBox="0 0 24 24">
-            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-          </svg>
-          <span class="text-[#031728]">Quiero ir a verlo</span>
-        </a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- =========================================================================
-      SECTION 3: ¿POR QUÉ LO VENDO EN $200 Y NO MÁS CARO?
-     ========================================================================= -->
-  <section id="historia" class="relative z-10 py-16 sm:py-20 px-4 sm:px-8 md:px-12 bg-[#0A2540]/40 border-t border-white/10 scroll-mt-20">
-    <div class="max-w-4xl mx-auto">
-      
-      <div class="reveal-item reveal-scale-up">
-        <div class="liquid-glass glow-card rounded-3xl p-6 sm:p-10 border border-[#2AD5FF]/30 relative overflow-hidden shadow-2xl">
-          <span class="inline-block px-4 py-1.5 rounded-full bg-[#FFD200]/20 border border-[#FFD200] text-[#FFD200] text-xs sm:text-sm font-black uppercase tracking-wider mb-5">
-            Siendo Honesto
-          </span>
-
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-5 leading-tight">
-            ¿Por qué lo vendo en $200 y no más caro?
-          </h2>
-
-          <p class="text-base sm:text-xl text-gray-200 mb-8 leading-relaxed font-normal">
-            Lo compré para un proyecto personal que no se dio por falta de tiempo. Se armó, se usó solo 3 veces (casi nada en realidad) y se guardó impecable.
-          </p>
-
-          <div class="bg-[#031728]/90 rounded-2xl p-6 sm:p-8 border border-[#0077FF] bg-[#0077FF]/20 shadow-xl">
-            <p class="font-extrabold text-lg sm:text-2xl text-[#2AD5FF] mb-3 flex items-center gap-3">
-              <span>🎯</span> Lo que prefiero:
-            </p>
-            <p class="text-gray-100 text-base sm:text-lg leading-relaxed font-medium">
-              De verdad, prefiero que te lo lleves tú, se lo pongas a tus hijos en el patio y le saquen el máximo provecho que yo no le pude sacar.
-            </p>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- =========================================================================
-      SECTION 4: ESPECIFICACIONES TÉCNICAS
-     ========================================================================= -->
-  <section id="specs" class="relative z-10 py-16 sm:py-20 px-4 sm:px-8 md:px-12 bg-[#031728] border-t border-white/10">
-    <div class="max-w-5xl mx-auto">
-      
-      <div class="reveal-item reveal-fade-up text-center mb-12">
-        <h2 class="text-3xl sm:text-5xl font-extrabold text-white">
-          Características
-        </h2>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-10">
-        
-        <div class="reveal-item reveal-scale-up liquid-glass glow-card rounded-2xl p-6 border border-white/15">
-          <div class="flex items-start gap-4">
-            <span class="text-3xl">📏</span>
-            <div>
-              <h3 class="font-extrabold text-[#2AD5FF] text-base sm:text-lg mb-1">Medidas</h3>
-              <p class="text-sm sm:text-base text-gray-200 leading-relaxed font-medium">2.44 m de ancho x 2.20 m de alto total.</p>
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-white mb-6">
+                ¿Por qué lo vendo?
+              </h2>
+              <div className="modern-glass p-6 sm:p-8 rounded-2xl text-left border border-white/15 hover:border-[#78B719]/50 transition-all">
+                <p className="text-emerald-100 text-base sm:text-lg leading-relaxed">
+                  La compré para un proyecto de eventos que no siguió adelante. Se usó en 3 ocasiones. Por eso está 10/10, sin manchas de barro, sin bordes rotos, sin decolorar por sol. Tal como la ves en las fotos.
+                </p>
+              </div>
             </div>
-          </div>
-        </div>
+          </section>
 
-        <div class="reveal-item reveal-scale-up liquid-glass glow-card rounded-2xl p-6 border border-white/15">
-          <div class="flex items-start gap-4">
-            <span class="text-3xl">🏗️</span>
-            <div>
-              <h3 class="font-extrabold text-[#FFD200] text-base sm:text-lg mb-1">Estructura</h3>
-              <p class="text-sm sm:text-base text-gray-200 leading-relaxed font-medium">Acero galvanizado resistente al agua y al sol (Peso total: 38 kg).</p>
+          {}
+          <section className="py-20 px-4 sm:px-6 md:px-12 relative z-10">
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-2xl sm:text-4xl font-extrabold text-white">
+                  Ojo con esto
+                </h2>
+                <p className="text-emerald-200/70 text-sm mt-2">
+                  Claridad ante todo
+                </p>
+              </div>
+
+              <div className="space-y-6">
+                <div className="modern-glass bg-red-950/20 border border-red-500/30 hover:border-red-500/60 rounded-2xl p-6 sm:p-8 backdrop-blur-md shadow-xl transition-all">
+                  <h3 className="text-xl font-bold text-red-400 mb-6 flex items-center gap-2">
+                    <i data-lucide="x-circle" className="w-6 h-6"></i>
+                    <span>NO soy</span>
+                  </h3>
+                  <ul className="space-y-4 text-emerald-100/80 text-sm">
+                    <li className="flex items-start gap-3">
+                      <i data-lucide="x" className="w-5 h-5 text-red-400 shrink-0 mt-0.5"></i>
+                      <span>Tienda comercial, no entrego factura, ni tengo más de lo que te digo.</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <i data-lucide="x" className="w-5 h-5 text-red-400 shrink-0 mt-0.5"></i>
+                      <span>No pido transferencias por adelantado "para apartar".</span>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Transport Box */}
+                <div className="modern-glass bg-amber-500/10 border border-amber-500/40 hover:border-amber-400/70 rounded-2xl p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4 text-amber-200 backdrop-blur-md shadow-xl transition-all">
+                  <div className="p-3 bg-amber-500/20 rounded-xl text-amber-300 shrink-0">
+                    <i data-lucide="truck" className="w-8 h-8"></i>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-white text-base mb-1">
+                      🚚 Necesitas un transporte
+                    </h4>
+                    <p className="text-sm text-amber-200/90 leading-relaxed">
+                      Para llevarlo enrollado. Ten en cuenta que son 2 m de ancho y calcula si en el carro puede ir o en una moto con carrucha también.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          </section>
 
-        <div class="reveal-item reveal-scale-up liquid-glass glow-card rounded-2xl p-6 border border-white/15">
-          <div class="flex items-start gap-4">
-            <span class="text-3xl">🛡️</span>
-            <div>
-              <h3 class="font-extrabold text-[#25D366] text-base sm:text-lg mb-1">Seguridad</h3>
-              <p class="text-sm sm:text-base text-gray-200 leading-relaxed font-medium">Red protectora 360° con cierre, 48 resortes reinforced con protector acolchado, parantes forrados en goma espuma.</p>
+          {}
+          <section className="py-20 px-4 sm:px-6 md:px-12 bg-[#08382C]/50 relative z-10">
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-16">
+                <span className="text-[#FDC100] text-xs font-bold tracking-widest uppercase">
+                  Proceso Simple
+                </span>
+                <h2 className="text-2xl sm:text-4xl font-extrabold text-white mt-2">
+                  ¿Cómo? (4 pasos)
+                </h2>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {[
+                  { step: "1", title: "Escribes", desc: "Al WhatsApp y coordinamos la hora." },
+                  { step: "2", title: "Vienes", desc: "A la dirección que te de." },
+                  { step: "3", title: "Revisas", desc: "La grama con calma: la desenrollas, chequeas color y textura." },
+                  { step: "4", title: "Pago", desc: "A la tasa del día, solo si estás satisfecho." }
+                ].map((item, idx) => (
+                  <div key={idx} className="modern-glass p-6 rounded-2xl border border-white/15 hover:border-[#78B719]/60 transition-all flex flex-col justify-between shadow-xl">
+                    <div>
+                      <div className="w-10 h-10 rounded-xl bg-[#FDC100] text-[#041F18] font-extrabold text-lg flex items-center justify-center mb-4 shadow-lg">
+                        {item.step}
+                      </div>
+                      <h3 className="font-bold text-white text-lg mb-2">{item.title}</h3>
+                      <p className="text-emerald-100/80 text-sm leading-relaxed">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        </div>
+          </section>
 
-        <div class="reveal-item reveal-scale-up liquid-glass glow-card rounded-2xl p-6 border border-white/15">
-          <div class="flex items-start gap-4">
-            <span class="text-3xl">🏋️‍♂️</span>
-            <div>
-              <h3 class="font-extrabold text-[#2AD5FF] text-base sm:text-lg mb-1">Lona de salto</h3>
-              <p class="text-sm sm:text-base text-gray-200 leading-relaxed font-medium">Polipropileno de alta densidad extremadamente resistente.</p>
+          {}
+          <section className="py-20 px-4 sm:px-6 md:px-12 relative z-10">
+            <div className="max-w-3xl mx-auto">
+              <div className="text-center mb-12">
+                <div className="inline-block p-3 bg-[#78B719]/20 text-[#78B719] rounded-2xl mb-3 border border-[#78B719]/30">
+                  <i data-lucide="help-circle" className="w-8 h-8"></i>
+                </div>
+                <h2 className="text-2xl sm:text-4xl font-extrabold text-white">
+                PREGUNTAS FRECUENTES
+                </h2>
+              </div>
+
+              <div className="space-y-4">
+                {[
+                  { q: "¿Aceptas menos de $140?", a: "No. El precio es $140 por los 20 m² en total." },
+                  { q: "¿Vendes una sola pieza de 5×2?", a: "No, vendo las 2 piezas juntas (20 m² en total)." },
+                  { q: "¿Cuánto tiempo de vida útil le queda?", a: "La grama está en muy buena calidad, rinde varios años de uso normal. Esta pieza apenas tiene 3 usos, así que empiezas prácticamente desde cero." },
+                  { q: "¿Necesito pegarla o fijarla al piso?", a: "No es obligatorio. Puedes dejarla suelta sobre una superficie plana." },
+                  { q: "¿Y si al llegar a mi casa le encuentro un defecto que no vi en la visita?", a: "Por eso el trato es así: la revisas en mi casa, con tus propias manos, antes de pagar un solo dólar. No hay sorpresas después porque no hay pago hasta que tú confirmes que está como esperabas." },
+                  { q: "¿Envían fuera de Caja Seca?", a: "No, el retiro es únicamente en mi casa en Caja Seca. No hago envíos." }
+                ].map((faq, idx) => (
+                  <div key={idx} className="modern-glass border border-white/15 hover:border-[#78B719]/50 rounded-2xl overflow-hidden transition-all shadow-lg">
+                    <button
+                      onClick={() => toggleFaq(idx)}
+                      className="w-full text-left p-5 flex items-center justify-between font-bold text-white text-base sm:text-lg hover:bg-white/5 transition-colors gap-4"
+                    >
+                      <span>{faq.q}</span>
+                      <i data-lucide="chevron-down" className={`w-5 h-5 text-[#FDC100] shrink-0 transition-transform duration-300 ${openFaq === idx ? 'rotate-180' : ''}`}></i>
+                    </button>
+
+                    {openFaq === idx && (
+                      <div className="px-5 pb-5 pt-1 text-emerald-100/80 text-sm sm:text-base border-t border-white/10 leading-relaxed bg-black/20">
+                        {faq.a}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        </div>
+          </section>
 
-      </div>
-
-      <div class="reveal-item reveal-fade-up liquid-glass glow-card rounded-2xl p-6 border border-[#0077FF] bg-[#0077FF]/20 flex items-center gap-5">
-        <span class="text-4xl shrink-0">🛠️</span>
-        <div>
-          <h3 class="font-extrabold text-white text-base sm:text-xl mb-1">Armado rápido</h3>
-          <p class="text-sm sm:text-base text-gray-200 leading-relaxed font-medium">Se arma entre dos personas en menos de 15 min, sin herramientas especiales.</p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- =========================================================================
-      SECTION 5: PRUEBA SOCIAL REAL
-     ========================================================================= -->
-  <section id="pruebas" class="relative z-10 py-16 sm:py-20 px-4 sm:px-8 md:px-12 bg-[#0A2540]/30 border-t border-white/10">
-    <div class="max-w-5xl mx-auto">
-      
-      <div class="reveal-item reveal-fade-up text-center mb-10">
-        <h2 class="text-3xl sm:text-5xl font-extrabold text-white">
-          2,624 familias opinan
-        </h2>
-        <p class="text-gray-300 text-sm sm:text-base mt-2 font-medium">Reseñas y experiencia comprobada de la marca</p>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-        
-        <div class="reveal-item reveal-scale-up">
-          <div 
-            onclick="openLightboxByUrl('https://i.postimg.cc/X70K2c6D/Captura-de-pantalla-2026-07-27-103715.png', 'Evidencia visual de marca')"
-            class="liquid-glass glow-card rounded-2xl overflow-hidden border border-white/15 cursor-pointer shadow-lg hover:border-[#2AD5FF]/60 transition-all p-2 bg-black/40"
-          >
-            <img src="https://i.postimg.cc/X70K2c6D/Captura-de-pantalla-2026-07-27-103715.png" alt="Evidencia visual de compradores 1" class="w-full rounded-xl object-cover hover:scale-102 transition-transform duration-300" loading="lazy" />
-          </div>
-        </div>
-
-        <div class="reveal-item reveal-scale-up">
-          <div 
-            onclick="openLightboxByUrl('https://i.postimg.cc/dDcQmV74/Captura-de-pantalla-2026-07-27-113345.png', 'Evidencia visual de marca')"
-            class="liquid-glass glow-card rounded-2xl overflow-hidden border border-white/15 cursor-pointer shadow-lg hover:border-[#2AD5FF]/60 transition-all p-2 bg-black/40"
-          >
-            <img src="https://i.postimg.cc/dDcQmV74/Captura-de-pantalla-2026-07-27-113345.png" alt="Evidencia visual de compradores 2" class="w-full rounded-xl object-cover hover:scale-102 transition-transform duration-300" loading="lazy" />
-          </div>
-        </div>
-
-        <div class="reveal-item reveal-scale-up">
-          <div 
-            onclick="openLightboxByUrl('https://i.postimg.cc/YCSwWF0R/Captura-de-pantalla-2026-07-27-105957.png', 'Evidencia visual de marca')"
-            class="liquid-glass glow-card rounded-2xl overflow-hidden border border-white/15 cursor-pointer shadow-lg hover:border-[#2AD5FF]/60 transition-all p-2 bg-black/40"
-          >
-            <img src="https://i.postimg.cc/YCSwWF0R/Captura-de-pantalla-2026-07-27-105957.png" alt="Evidencia visual de compradores 3" class="w-full rounded-xl object-cover hover:scale-102 transition-transform duration-300" loading="lazy" />
-          </div>
-        </div>
-
-        <div class="reveal-item reveal-scale-up">
-          <div 
-            onclick="openLightboxByUrl('https://i.postimg.cc/d0pvv0q2/Captura-de-pantalla-2026-07-27-105834.png', 'Evidencia visual de marca')"
-            class="liquid-glass glow-card rounded-2xl overflow-hidden border border-white/15 cursor-pointer shadow-lg hover:border-[#2AD5FF]/60 transition-all p-2 bg-black/40"
-          >
-            <img src="https://i.postimg.cc/d0pvv0q2/Captura-de-pantalla-2026-07-27-105834.png" alt="Evidencia visual de compradores 4" class="w-full rounded-xl object-cover hover:scale-102 transition-transform duration-300" loading="lazy" />
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- =========================================================================
-      SECTION 6: PREGUNTAS FRECUENTES (Interactive Chat-Accordion Style)
-     ========================================================================= -->
-  <section id="faq" class="relative z-10 py-16 sm:py-20 px-4 sm:px-8 md:px-12 bg-[#031728] border-t border-white/10">
-    <div class="max-w-4xl mx-auto">
-      
-      <div class="reveal-item reveal-fade-up text-center mb-12">
-        <h2 class="text-3xl sm:text-5xl font-extrabold text-white">
-          Preguntas frecuentes
-        </h2>
-        <p class="text-gray-300 text-sm sm:text-base mt-2 font-medium">
-          Lee esto antes de escribirme
-        </p>
-      </div>
-
-      <!-- FAQ Chat-Accordion Container -->
-      <div class="space-y-4">
-        
-        <!-- FAQ Item 0 -->
-        <div class="reveal-item reveal-scale-up">
-          <button 
-            onclick="toggleFaq(0)"
-            class="w-full flex items-center justify-between gap-4 p-5 rounded-2xl liquid-glass glow-card border border-white/15 hover:border-[#2AD5FF]/60 transition-all text-left group"
-          >
-            <div class="flex items-center gap-4">
-              <span class="w-10 h-10 rounded-xl bg-[#2AD5FF]/20 border border-[#2AD5FF]/40 text-[#2AD5FF] flex items-center justify-center shrink-0 font-black text-lg">
-                📦
-              </span>
-              <span class="font-bold text-base sm:text-lg text-white group-hover:text-[#2AD5FF] transition-colors">
-                ¿Está armado?
-              </span>
+          {}
+          <section className="relative py-24 px-4 sm:px-6 md:px-12 overflow-hidden border-t-2 border-b-2 border-[#78B719]/40 z-10">
+            {/* Background Video */}
+            <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover scale-105 filter brightness-105 contrast-105"
+              >
+                <source src="https://pub-48e5e21731d74cf7a344201ee4e87636.r2.dev/nuevo.mp4" type="video/mp4" />
+              </video>
+              <div className="absolute inset-0 bg-gradient-to-r from-[#041F18]/90 via-[#041F18]/75 to-[#041F18]/90 backdrop-blur-[1px]" />
             </div>
-            <span id="faq-toggle-0" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-gray-300 font-extrabold text-lg transition-all shrink-0">
-              +
-            </span>
-          </button>
 
-          <div id="faq-content-0" class="overflow-hidden max-h-0 opacity-0 transition-all duration-300 ease-in-out pl-6 sm:pl-14">
-            <div class="relative inline-block max-w-2xl rounded-2xl rounded-tl-sm bg-gradient-to-r from-[#0077FF]/30 to-[#0A2540] border border-[#2AD5FF]/40 p-5 text-sm sm:text-base text-gray-100 shadow-xl leading-relaxed font-medium">
-              Está desarmado en su caja, con absolutamente todas sus piezas: tubos, resortes, red y tornillos.
+            <div className="relative z-10 max-w-3xl mx-auto text-center space-y-6">
+              <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight drop-shadow-xl">
+                ¿Listo para darle una nueva vida a tu espacio?
+              </h2>
+
+              <p className="text-emerald-100/95 text-base sm:text-lg max-w-lg mx-auto font-medium drop-shadow-md">
+                Escríbeme para acordar la hora y venir a verla.
+              </p>
+
+              <div className="pt-2">
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="glow-yellow btn-shine inline-flex items-center justify-center gap-3 bg-[#FDC100] hover:bg-[#78B719] text-[#041F18] hover:text-white font-extrabold text-lg sm:text-xl px-10 py-5 rounded-full shadow-2xl transition-all duration-300 transform hover:scale-105"
+                >
+                  <WhatsAppIcon className="w-7 h-7" />
+                  <span>Sí quiero</span>
+                </a>
+              </div>
+
+              <p className="text-xs sm:text-sm text-emerald-200/90 font-medium drop-shadow flex items-center justify-center gap-2 pt-2">
+                <span className="w-2 h-2 rounded-full bg-[#78B719] animate-pulse"></span>
+                <span>Pago únicamente en persona al revisar el producto</span>
+              </p>
             </div>
-          </div>
+          </section>
+
+          {}
+          <footer className="py-10 px-4 border-t border-white/10 text-center relative z-10 bg-[#021410]">
+            <div className="max-w-xl mx-auto space-y-3 text-[11px] text-gray-400/60 leading-relaxed font-normal select-none">
+              <p>© 2026 Grama Artificial. Todos los derechos reservados.</p>
+              <div className="flex items-center justify-center gap-3">
+                <a
+                  href="https://app.notion.com/p/3a91d1422a2080188665fbe4e9a403e7?source=copy_link#3ab1d1422a20804e8f23ef756f91c189"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline hover:text-gray-300 transition-colors"
+                >
+                  Política de Privacidad
+                </a>
+                <span>•</span>
+                <a
+                  href="https://app.notion.com/p/3a91d1422a2080188665fbe4e9a403e7?source=copy_link#3ab1d1422a2080479509ea8b8a788483"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline hover:text-gray-300 transition-colors"
+                >
+                  Términos y Condiciones
+                </a>
+              </div>
+              <p className="max-w-md mx-auto pt-1">
+                Este sitio web no forma parte del sitio web de Meta ni de Meta Platforms, Inc. Además, este sitio NO está respaldado por Meta de ninguna manera. FACEBOOK y META son marcas registradas de Meta Platforms, Inc.
+              </p>
+            </div>
+          </footer>
+
+          {}
+          <AnimatePresence>
+            {selectedMedia && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setSelectedMedia(null)}
+                className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md p-4 sm:p-8 flex items-center justify-center cursor-pointer"
+              >
+                <div
+                  onClick={(e) => e.stopPropagation()}
+                  className="relative max-w-4xl w-full modern-glass rounded-2xl overflow-hidden shadow-2xl border border-white/20 cursor-default"
+                >
+                  <button
+                    onClick={() => setSelectedMedia(null)}
+                    className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/70 text-white flex items-center justify-center hover:bg-[#FDC100] hover:text-[#041F18] transition-colors"
+                  >
+                    <i data-lucide="x" className="w-6 h-6"></i>
+                  </button>
+
+                  <div className="relative aspect-video w-full bg-black flex items-center justify-center">
+                    {selectedMedia.type === "image" ? (
+                      <img
+                        src={selectedMedia.url}
+                        alt={selectedMedia.title}
+                        className="max-h-[75vh] w-auto object-contain"
+                      />
+                    ) : (
+                      <video
+                        src={selectedMedia.url}
+                        controls
+                        autoPlay
+                        className="max-h-[75vh] w-full object-contain"
+                      />
+                    )}
+                  </div>
+
+                  <div className="p-6 bg-[#041F18]">
+                    <h3 className="text-xl font-bold text-white mb-1">{selectedMedia.title}</h3>
+                    <p className="text-emerald-200/80 text-sm">{selectedMedia.description}</p>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
         </div>
-
-        <!-- FAQ Item 1 -->
-        <div class="reveal-item reveal-scale-up">
-          <button 
-            onclick="toggleFaq(1)"
-            class="w-full flex items-center justify-between gap-4 p-5 rounded-2xl liquid-glass glow-card border border-white/15 hover:border-[#2AD5FF]/60 transition-all text-left group"
-          >
-            <div class="flex items-center gap-4">
-              <span class="w-10 h-10 rounded-xl bg-[#2AD5FF]/20 border border-[#2AD5FF]/40 text-[#2AD5FF] flex items-center justify-center shrink-0 font-black text-lg">
-                🚗
-              </span>
-              <span class="font-bold text-base sm:text-lg text-white group-hover:text-[#2AD5FF] transition-colors">
-                ¿Necesito un camión para llevármelo?
-              </span>
-            </div>
-            <span id="faq-toggle-1" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-gray-300 font-extrabold text-lg transition-all shrink-0">
-              +
-            </span>
-          </button>
-
-          <div id="faq-content-1" class="overflow-hidden max-h-0 opacity-0 transition-all duration-300 ease-in-out pl-6 sm:pl-14">
-            <div class="relative inline-block max-w-2xl rounded-2xl rounded-tl-sm bg-gradient-to-r from-[#0077FF]/30 to-[#0A2540] border border-[#2AD5FF]/40 p-5 text-sm sm:text-base text-gray-100 shadow-xl leading-relaxed font-medium">
-              No. Al estar desarmado, cabe perfectamente en el asiento trasero de un carro, hasta en moto con carrucha o a pie si vives cerca.
-            </div>
-          </div>
-        </div>
-
-        <!-- FAQ Item 2 -->
-        <div class="reveal-item reveal-scale-up">
-          <button 
-            onclick="toggleFaq(2)"
-            class="w-full flex items-center justify-between gap-4 p-5 rounded-2xl liquid-glass glow-card border border-white/15 hover:border-[#2AD5FF]/60 transition-all text-left group"
-          >
-            <div class="flex items-center gap-4">
-              <span class="w-10 h-10 rounded-xl bg-[#FFD200]/20 border border-[#FFD200]/40 text-[#FFD200] flex items-center justify-center shrink-0 font-black text-lg">
-                💳
-              </span>
-              <span class="font-bold text-base sm:text-lg text-white group-hover:text-[#2AD5FF] transition-colors">
-                ¿Cómo se paga?
-              </span>
-            </div>
-            <span id="faq-toggle-2" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-gray-300 font-extrabold text-lg transition-all shrink-0">
-              +
-            </span>
-          </button>
-
-          <div id="faq-content-2" class="overflow-hidden max-h-0 opacity-0 transition-all duration-300 ease-in-out pl-6 sm:pl-14">
-            <div class="relative inline-block max-w-2xl rounded-2xl rounded-tl-sm bg-gradient-to-r from-[#0077FF]/30 to-[#0A2540] border border-[#2AD5FF]/40 p-5 text-sm sm:text-base text-gray-100 shadow-xl leading-relaxed font-medium">
-              Efectivo o PAGO MÓVIL a BCV a la tasa del día.
-            </div>
-          </div>
-        </div>
-
-        <!-- FAQ Item 3 -->
-        <div class="reveal-item reveal-scale-up">
-          <button 
-            onclick="toggleFaq(3)"
-            class="w-full flex items-center justify-between gap-4 p-5 rounded-2xl liquid-glass glow-card border border-white/15 hover:border-[#2AD5FF]/60 transition-all text-left group"
-          >
-            <div class="flex items-center gap-4">
-              <span class="w-10 h-10 rounded-xl bg-[#FFD200]/20 border border-[#FFD200]/40 text-[#FFD200] flex items-center justify-center shrink-0 font-black text-lg">
-                💵
-              </span>
-              <span class="font-bold text-base sm:text-lg text-white group-hover:text-[#2AD5FF] transition-colors">
-                ¿Aceptas menos de $200 o cambios?
-              </span>
-            </div>
-            <span id="faq-toggle-3" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-gray-300 font-bold text-base transition-all shrink-0">
-              +
-            </span>
-          </button>
-
-          <div id="faq-content-3" class="overflow-hidden max-h-0 opacity-0 transition-all duration-300 ease-in-out pl-6 sm:pl-14">
-            <div class="relative inline-block max-w-2xl rounded-2xl rounded-tl-sm bg-gradient-to-r from-[#0077FF]/30 to-[#0A2540] border border-[#FFD200]/50 p-5 text-sm sm:text-base text-[#FFD200] font-black shadow-xl leading-relaxed">
-              ¿Es en serio?. No me escribas para eso.
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- =========================================================================
-      SECTION 7: CONDICIONES DE VENTA
-     ========================================================================= -->
-  <section id="condiciones" class="relative z-10 py-16 sm:py-20 px-4 sm:px-8 md:px-12 bg-[#0A2540]/30 border-t border-white/10">
-    <div class="max-w-4xl mx-auto">
-      
-      <div class="reveal-item reveal-scale-up liquid-glass glow-card rounded-3xl p-6 sm:p-10 border border-red-500/40 bg-red-950/20">
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-red-400 mb-5 flex items-center gap-3">
-          <span>🚨</span> Ojo con esto
-        </h2>
-
-        <ul class="space-y-4 text-sm sm:text-base text-gray-200 font-medium">
-          <li class="flex items-start gap-3.5 p-3 rounded-xl bg-black/40 border border-white/10">
-            <span class="text-red-400 shrink-0 font-extrabold text-lg">📌</span>
-            <span><strong>Solo tengo UN trampolín</strong> (no soy tienda comercial).</span>
-          </li>
-          <li class="flex items-start gap-3.5 p-3 rounded-xl bg-black/40 border border-white/10">
-            <span class="text-red-400 shrink-0 font-extrabold text-lg">📌</span>
-            <span><strong>No se reserva sin ver.</strong> Si te gusta, vienes a revisarlo.</span>
-          </li>
-          <li class="flex items-start gap-3.5 p-3 rounded-xl bg-black/40 border border-white/10">
-            <span class="text-red-400 shrink-0 font-extrabold text-lg">📌</span>
-            <span><strong>Pagas al momento</strong> de retirarlo satisfecho.</span>
-          </li>
-        </ul>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- =========================================================================
-      SECTION 8: CTA FINAL - Si quiero
-     ========================================================================= -->
-  <section class="relative z-10 py-20 sm:py-28 px-4 sm:px-8 md:px-12 border-t border-white/10 text-center overflow-hidden">
-    
-    <!-- Background Image con alta luminosidad y claridad -->
-    <div class="absolute inset-0 z-0 overflow-hidden bg-[#020F1B] pointer-events-none">
-      <img
-        src="https://i.postimg.cc/dV0SYNRV/1785089625833.png"
-        alt="Trampolín familiar en Caja Seca"
-        referrerpolicy="no-referrer"
-        class="w-full h-full object-cover object-center animate-boomerang-zoom opacity-85 filter brightness-105"
-      />
-      <div class="absolute inset-0 bg-gradient-to-t from-[#031728] via-[#031728]/30 to-black/25 pointer-events-none"></div>
-      <div class="absolute inset-0 bg-gradient-to-r from-[#031728]/40 via-[#031728]/15 to-black/25 pointer-events-none"></div>
-    </div>
-
-    <div class="relative z-20 max-w-3xl mx-auto">
-      
-      <span class="inline-block px-4 py-1.5 rounded-full bg-[#FFD200]/20 border border-[#FFD200] text-[#FFD200] text-xs sm:text-sm font-bold uppercase tracking-wider mb-5">
-        Sorpresa Garantizada
-      </span>
-
-      <h2 class="text-3xl sm:text-5xl font-extrabold text-white mb-8 sm:mb-12 leading-tight">
-        ¿Quieres cambiar esas tardes aburridas por risas?
-      </h2>
-
-      <div class="flex flex-col items-center gap-4">
-        <a 
-          href="https://wa.me/584142298507?text=Hola%2C%20quiero%20que%20coordinemos%20para%20ir%20a%20verlo."
-          target="_blank"
-          rel="noopener noreferrer"
-          class="w-full sm:w-auto font-extrabold text-base sm:text-xl bg-[#25D366] hover:bg-[#20ba5a] text-[#031728] px-10 py-5 rounded-full flex items-center justify-center gap-3 whatsapp-btn-glow transition-all text-center animate-shine shadow-2xl"
-        >
-          <svg class="w-7 h-7 fill-[#031728] shrink-0" viewBox="0 0 24 24">
-            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-          </svg>
-          <span class="text-[#031728]">Sí quiero</span>
-        </a>
-
-        <div class="inline-flex items-center gap-2 text-sm text-[#2AD5FF] font-bold mt-2">
-          <span>📍</span>
-          <span>Sólo para 1 familia en Caja Seca</span>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="relative z-10 py-10 px-4 border-t border-white/10 text-center bg-[#031728]">
-    <div class="max-w-4xl mx-auto space-y-6">
-      
-      <p class="text-base font-bold text-gray-300">Brinca Brinca</p>
-
-      <!-- Bloque Legal Discreto (11px, baja opacidad) -->
-      <div class="pt-6 border-t border-white/5 space-y-3 text-[11px] text-gray-400/70 font-normal leading-relaxed">
-        <p>© 2026 Brinca Brinca. Todos los derechos reservados.</p>
-        
-        <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
-          <a 
-            href="https://www.privacypolicies.com/live/4dac14d8-41ec-494c-a0d8-0a50368be1dd" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            class="underline hover:text-gray-300 transition-colors"
-          >
-            Política de Privacidad
-          </a>
-          <span class="text-gray-600/50">•</span>
-          <a 
-            href="https://docs.google.com/document/d/1EOQxVNeuMS02WxYbcEEFARIPEc8XWqQb3T07CRDOr8Q/edit?usp=sharing" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            class="underline hover:text-gray-300 transition-colors"
-          >
-            Términos y Condiciones
-          </a>
-        </div>
-
-        <p class="max-w-2xl mx-auto text-[11px] text-gray-400/60 leading-normal pt-1">
-          Este sitio web no forma parte del sitio web de Meta ni de Meta Platforms, Inc. Además, este sitio NO está respaldado por Meta de ninguna manera. FACEBOOK y META son marcas registradas de Meta Platforms, Inc.
-        </p>
-      </div>
-
-    </div>
-  </footer>
-
-  <!-- LIGHTBOX MODAL -->
-  <div id="lightbox-modal" class="hidden fixed inset-0 z-50 bg-black/90 backdrop-blur-xl p-4 items-center justify-center">
-    <div class="relative max-w-4xl w-full max-h-[90vh] flex flex-col items-center justify-center" onclick="event.stopPropagation()">
-      
-      <button 
-        onclick="closeLightbox()" 
-        class="absolute -top-12 right-0 p-2.5 text-white/80 hover:text-white bg-white/10 hover:bg-white/20 rounded-full transition-all"
-      >
-        ✕
-      </button>
-
-      <button 
-        onclick="prevLightboxItem()" 
-        class="absolute left-2 top-1/2 -translate-y-1/2 p-3.5 text-white bg-black/60 hover:bg-black/90 border border-white/20 rounded-full transition-all z-10 font-bold"
-      >
-        ❮
-      </button>
-
-      <button 
-        onclick="nextLightboxItem()" 
-        class="absolute right-2 top-1/2 -translate-y-1/2 p-3.5 text-white bg-black/60 hover:bg-black/90 border border-white/20 rounded-full transition-all z-10 font-bold"
-      >
-        ❯
-      </button>
-
-      <div id="lightbox-media-container" class="w-full flex items-center justify-center"></div>
-
-      <div class="mt-4 flex flex-col items-center gap-2">
-        <p id="lightbox-caption" class="text-white text-sm sm:text-base font-bold bg-[#031728]/90 px-5 py-2.5 rounded-full border border-white/15 text-center"></p>
-        <span id="lightbox-counter" class="text-xs text-gray-400"></span>
-      </div>
-
-    </div>
-  </div>
-
-  <script>
-    const photoList = [
-      { type: 'image', url: 'https://i.postimg.cc/XJkNnbXB/817Qi4Og61L.jpg', caption: 'Lona tensa e impecable' },
-      { type: 'video', videoUrl: 'https://pub-48e5e21731d74cf7a344201ee4e87636.r2.dev/trampolin.mp4', caption: 'Video real del trampolín en acción' },
-      { type: 'image', url: 'https://i.postimg.cc/CLYcCG78/5129680974823230758-121.jpg', caption: 'Red de seguridad protectora 360°' },
-      { type: 'video', videoUrl: 'https://pub-48e5e21731d74cf7a344201ee4e87636.r2.dev/tresd.mp4', caption: 'Estructura y resortes en acción' }
-    ];
-
-    let currentLightboxIndex = 0;
-
-    // Mouse Spotlight Glow on Cards
-    document.addEventListener('mousemove', (e) => {
-      document.querySelectorAll('.glow-card').forEach(card => {
-        const rect = card.getBoundingClientRect();
-        if (
-          e.clientX >= rect.left &&
-          e.clientX <= rect.right &&
-          e.clientY >= rect.top &&
-          e.clientY <= rect.bottom
-        ) {
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          card.style.setProperty('--mouse-x', `${x}px`);
-          card.style.setProperty('--mouse-y', `${y}px`);
-        }
-      });
-    });
-
-    // Scroll Progress
-    window.addEventListener('scroll', () => {
-      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const currentScroll = window.scrollY;
-
-      if (totalHeight > 0) {
-        const progress = (currentScroll / totalHeight) * 100;
-        document.getElementById('scroll-progress-bar').style.width = `${progress}%`;
-      }
-    });
-
-    // Chat-Style Interactive FAQ Accordion
-    function toggleFaq(index) {
-      const content = document.getElementById(`faq-content-${index}`);
-      const toggleBtn = document.getElementById(`faq-toggle-${index}`);
-      
-      const isCurrentlyOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
-
-      // Close all FAQs smoothly first
-      [0, 1, 2, 3].forEach(i => {
-        const el = document.getElementById(`faq-content-${i}`);
-        const btn = document.getElementById(`faq-toggle-${i}`);
-        if (el) {
-          el.style.maxHeight = '0px';
-          el.style.opacity = '0';
-          el.style.marginTop = '0px';
-        }
-        if (btn) {
-          btn.textContent = '+';
-          btn.classList.remove('bg-[#2AD5FF]', 'text-[#031728]', 'rotate-180');
-          btn.classList.add('bg-white/10', 'text-gray-300');
-        }
-      });
-
-      // If clicked item was closed, expand it smoothly
-      if (!isCurrentlyOpen && content) {
-        content.style.marginTop = '12px';
-        content.style.maxHeight = content.scrollHeight + 30 + 'px';
-        content.style.opacity = '1';
-
-        if (toggleBtn) {
-          toggleBtn.textContent = '−';
-          toggleBtn.classList.remove('bg-white/10', 'text-gray-300');
-          toggleBtn.classList.add('bg-[#2AD5FF]', 'text-[#031728]', 'rotate-180');
-        }
-      }
+      );
     }
 
-    // Scroll Observer
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-revealed');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
-
-    document.querySelectorAll('.reveal-item').forEach(el => observer.observe(el));
-
-    // Lightbox Modal
-    const modal = document.getElementById('lightbox-modal');
-    const mediaContainer = document.getElementById('lightbox-media-container');
-    const captionEl = document.getElementById('lightbox-caption');
-    const counterEl = document.getElementById('lightbox-counter');
-
-    function openLightbox(index) {
-      currentLightboxIndex = index;
-      updateLightboxContent();
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-    }
-
-    function openLightboxByUrl(url, captionText) {
-      captionEl.textContent = captionText || 'Evidencia de compradores real';
-      counterEl.textContent = '';
-      mediaContainer.innerHTML = `
-        <img src="${url}" alt="Evidencia visual" class="max-h-[80vh] max-w-full object-contain rounded-2xl border border-white/20 shadow-2xl" />
-      `;
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-    }
-
-    function closeLightbox() {
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-      mediaContainer.innerHTML = '';
-    }
-
-    function updateLightboxContent() {
-      const item = photoList[currentLightboxIndex];
-      captionEl.textContent = item.caption;
-      counterEl.textContent = `Elemento ${currentLightboxIndex + 1} de ${photoList.length}`;
-
-      if (item.type === 'video') {
-        mediaContainer.innerHTML = `
-          <div class="w-full max-w-sm aspect-[9/16] max-h-[75vh] bg-black rounded-2xl overflow-hidden border border-white/20 shadow-2xl">
-            <video src="${item.videoUrl}" controls autoplay loop playsinline class="w-full h-full object-cover"></video>
-          </div>
-        `;
-      } else {
-        mediaContainer.innerHTML = `
-          <img src="${item.url}" alt="${item.caption}" class="max-h-[75vh] max-w-full object-contain rounded-2xl border border-white/20 shadow-2xl" />
-        `;
-      }
-    }
-
-    function prevLightboxItem() {
-      currentLightboxIndex = (currentLightboxIndex - 1 + photoList.length) % photoList.length;
-      updateLightboxContent();
-    }
-
-    function nextLightboxItem() {
-      currentLightboxIndex = (currentLightboxIndex + 1) % photoList.length;
-      updateLightboxContent();
-    }
-
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) closeLightbox();
-    });
-
-    window.addEventListener('keydown', (e) => {
-      if (!modal.classList.contains('hidden')) {
-        if (e.key === 'Escape') closeLightbox();
-        if (e.key === 'ArrowLeft') prevLightboxItem();
-        if (e.key === 'ArrowRight') nextLightboxItem();
-      }
-    });
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
   </script>
 </body>
 </html>
