@@ -5,12 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tienes mensaje - Grama Artificial en Caja Seca</title>
 
-  <!-- Google Fonts: Bricolage Grotesque & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -35,13 +33,10 @@
     }
   </script>
 
-  <!-- React 18, ReactDOM, Framer Motion & Babel -->
   <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
   <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
-  <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
@@ -208,7 +203,6 @@
       );
     }
 
-    /* Componente reusable para el efecto Fade-In al hacer scroll */
     function FadeIn({ children, delay = 0, yOffset = 25, className = "" }) {
       return (
         <motion.div
@@ -271,7 +265,7 @@
           <div className="fixed top-20 left-10 w-96 h-96 bg-[#78B719]/10 rounded-full blur-[120px] pointer-events-none z-0" />
           <div className="fixed top-1/2 right-10 w-96 h-96 bg-[#FDC100]/10 rounded-full blur-[140px] pointer-events-none z-0" />
 
-          {}
+          {/* Hero Section */}
           <section className="relative min-h-screen w-full flex flex-col justify-between overflow-hidden bg-[#041F18] z-10 pb-12">
             {/* Background Video */}
             <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
@@ -302,7 +296,7 @@
             {/* Main Hero Content */}
             <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-4 flex-1 flex flex-col justify-between items-start text-left">
               
-              {/* BLOQUE SUPERIOR: Badge + Título Principal + Subtítulo */}
+              {/* BLOQUE SUPERIOR: Badge + Título Principal + Subtítulo con palabra 'alegría' */}
               <div className="max-w-2xl pt-2 sm:pt-4 flex flex-col items-start gap-2">
                 {/* Tag Badge */}
                 <div className="inline-flex items-center gap-2 bg-[#78B719]/25 border border-[#78B719] text-[#78B719] px-3.5 py-1 rounded-full text-xs sm:text-sm font-extrabold mb-1 shadow-md backdrop-blur-md">
@@ -314,21 +308,20 @@
                   20 m² de Grama Artificial
                 </h1>
 
-                {/* Subtítulo */}
+                {/* Subtítulo con "alegría" en reemplazo de "lujo" */}
                 <h2 className="text-xl sm:text-3xl md:text-4xl font-bold text-emerald-100 tracking-tight leading-tight mt-2 drop-shadow-lg">
-                  Dale <WordRotate words={["vida", "lujo", "color"]} /> a tu patio
+                  Dale <WordRotate words={["vida", "alegría", "color"]} /> a tu patio
                 </h2>
               </div>
 
               {/* BLOQUE INFERIOR: Precio + Aclaratoria */}
               <div className="max-w-2xl pb-2 sm:pb-6 flex flex-col items-start gap-3 w-full">
-                {/* Comparación de precio sin la etiqueta de ahorras */}
                 <div className="flex items-center gap-3 text-sm sm:text-base font-bold drop-shadow-md">
                   <span className="text-emerald-100/90 font-medium">Nuevo + flete</span>
                   <span className="line-through text-red-400 font-extrabold">$260</span>
                 </div>
 
-                {/* Pricing Callout Badge con "Oferta" */}
+                {/* Pricing Callout Badge */}
                 <div className="inline-flex items-center gap-3 sm:gap-4 bg-[#FDC100] text-[#041F18] px-5 py-2.5 sm:px-7 sm:py-3.5 rounded-2xl shadow-2xl font-black border-2 border-white/80 transition-transform hover:scale-[1.02]">
                   <span className="text-lg sm:text-2xl font-black tracking-wide">Oferta</span>
                   <span className="bg-[#041F18] text-[#FDC100] px-4 py-1.5 sm:px-5 sm:py-2 rounded-xl shadow-lg font-black text-2xl sm:text-4xl tracking-tight border border-emerald-500/30">
@@ -554,7 +547,6 @@
             </div>
           </section>
 
-          {/* Ojo con esto */}
           <section className="py-10 sm:py-14 px-4 sm:px-6 md:px-12 relative z-10">
             <div className="max-w-4xl mx-auto">
               <FadeIn>
@@ -690,7 +682,7 @@
             </div>
           </section>
 
-          {}
+          {/* Call to Action Final */}
           <section className="relative py-12 sm:py-16 px-4 sm:px-6 md:px-12 overflow-hidden border-t-2 border-b-2 border-[#78B719]/40 z-10">
             {/* Background Video */}
             <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
@@ -703,8 +695,10 @@
               >
                 <source src="https://pub-48e5e21731d74cf7a344201ee4e87636.r2.dev/nuevo.mp4" type="video/mp4" />
               </video>
-              <div className="absolute inset-0 bg-gradient-to-r from-[#041F18]/90 via-[#041F18]/75 to-[#041F18]/90 backdrop-blur-[1px]" />
+              <div className="absolute inset-0 left-gradient-mask" />
             </div>
+
+            <div className="absolute inset-0 z-1 pointer-events-none backdrop-blur-[2px] bottom-blur-mask" />
 
             <div className="relative z-10 max-w-3xl mx-auto text-center space-y-5">
               <FadeIn>
