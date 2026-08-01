@@ -3,13 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tienes mensaje - Grama Artificial en Caja Seca</title>
+  <title>Grama Artificial en Caja Seca — Oferta $140</title>
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1753162225700810');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1753162225700810&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+
+  <!-- Microsoft Clarity Code -->
+  <script type="text/javascript">
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "xvc3etwa87");
+  </script>
+  <!-- End Microsoft Clarity Code -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
   <script>
     tailwind.config = {
       theme: {
@@ -32,12 +62,6 @@
       }
     }
   </script>
-
-  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
-  <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
     body {
@@ -94,729 +118,627 @@
       mask-image: linear-gradient(to top, black 0%, transparent 60%);
       -webkit-mask-image: linear-gradient(to top, black 0%, transparent 60%);
     }
+    .word-rotate-container {
+      display: inline-block;
+      min-width: 90px;
+      text-align: left;
+    }
   </style>
 </head>
-<body class="selection:bg-[#78B719] selection:text-white antialiased overflow-x-hidden">
+<body class="selection:bg-[#78B719] selection:text-white antialiased overflow-x-hidden min-h-screen bg-gradient-to-b from-[#041F18] via-[#08382C] to-[#041F18] text-white relative">
 
-  <div id="root"></div>
+  <div class="fixed top-20 left-10 w-96 h-96 bg-[#78B719]/10 rounded-full blur-[120px] pointer-events-none z-0"></div>
+  <div class="fixed top-1/2 right-10 w-96 h-96 bg-[#FDC100]/10 rounded-full blur-[140px] pointer-events-none z-0"></div>
 
-  <script type="text/babel">
-    const { useState, useEffect } = React;
-    const { motion, AnimatePresence } = Motion;
+  <section class="relative min-h-screen w-full flex flex-col justify-between overflow-hidden bg-[#041F18] z-10 pb-12">
+    <!-- Background Video -->
+    <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+      <video autoPlay loop muted playsInline className="w-full h-full object-cover scale-105 filter brightness-105 contrast-105" class="w-full h-full object-cover scale-105 filter brightness-105 contrast-105">
+        <source src="https://pub-48e5e21731d74cf7a344201ee4e87636.r2.dev/nuevo.mp4" type="video/mp4">
+      </video>
+      <div class="absolute inset-0 left-gradient-mask"></div>
+    </div>
 
-    const WHATSAPP_NUMBER = "584142298507"; 
-    const WHATSAPP_MSG = encodeURIComponent(
-      "Hola. Vi la grama artificial. Quiero coordinar para ir a verla hoy."
-    );
-    const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`;
+    <div class="absolute inset-0 z-1 pointer-events-none backdrop-blur-[2px] bottom-blur-mask"></div>
 
-    function WhatsAppIcon({ className = "w-6 h-6" }) {
-      return (
-        <svg className={className} fill="currentColor" viewBox="0 0 24 24">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.063 2.876 1.21 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.99c-.002 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c-.001 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-        </svg>
-      );
-    }
-
-    function HoverBorderGradient({ children, className = "", containerClassName = "", onClick, ...props }) {
-      const [hovered, setHovered] = useState(false);
-      const [direction, setDirection] = useState('BOTTOM');
-
-      const directions = ['TOP', 'LEFT', 'BOTTOM', 'RIGHT'];
-
-      const movingMap = {
-        TOP: 'radial-gradient(20.7% 50% at 50% 0%, #FDC100 0%, rgba(253, 193, 0, 0) 100%)',
-        LEFT: 'radial-gradient(16.6% 43.1% at 0% 50%, #78B719 0%, rgba(120, 183, 25, 0) 100%)',
-        BOTTOM: 'radial-gradient(20.7% 50% at 50% 100%, #10B981 0%, rgba(16, 185, 129, 0) 100%)',
-        RIGHT: 'radial-gradient(16.2% 41.2% at 100% 50%, #FDC100 0%, rgba(253, 193, 0, 0) 100%)',
-      };
-
-      const highlight = 'radial-gradient(75% 180% at 50% 50%, #78B719 0%, rgba(253, 193, 0, 0) 100%)';
-
-      useEffect(() => {
-        if (!hovered) {
-          const interval = setInterval(() => {
-            setDirection((prev) => {
-              const idx = directions.indexOf(prev);
-              return directions[(idx + 1) % directions.length];
-            });
-          }, 1200);
-          return () => clearInterval(interval);
-        }
-      }, [hovered]);
-
-      return (
-        <div
-          onMouseEnter={() => setHovered(true)}
-          onMouseLeave={() => setHovered(false)}
-          onClick={onClick}
-          className={`relative flex h-min w-fit flex-col items-center justify-center overflow-visible rounded-full border border-white/20 bg-[#084234]/60 p-px backdrop-blur-md transition duration-500 cursor-pointer ${containerClassName}`}
-          {...props}
-        >
-          <div className={`z-10 w-auto rounded-[inherit] px-5 py-2.5 text-white ${className}`}>
-            {children}
-          </div>
-          <motion.div
-            className="absolute inset-0 z-0 flex-none overflow-hidden rounded-[inherit]"
-            style={{
-              filter: 'blur(3px)',
-              position: 'absolute',
-              width: '100%',
-              height: '100%',
-            }}
-            initial={{ background: movingMap[direction] }}
-            animate={{
-              background: hovered ? [movingMap[direction], highlight] : movingMap[direction],
-            }}
-            transition={{ ease: 'linear', duration: 0.8 }}
-          />
-          <div className="absolute inset-0.5 z-1 flex-none rounded-[100px] bg-[#041F18]/80" />
+    <!-- Header / Location bar -->
+    <header class="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 pt-4 pb-2 flex items-center justify-between">
+      <div class="relative flex h-min w-fit flex-col items-center justify-center overflow-visible rounded-full border border-white/20 bg-[#084234]/60 p-px backdrop-blur-md shadow-lg">
+        <div class="z-10 w-auto rounded-[inherit] px-5 py-2.5 text-white flex items-center gap-2 text-xs sm:text-sm font-medium text-emerald-200">
+          <span class="w-2 h-2 rounded-full bg-[#78B719] animate-ping"></span>
+          <span>📍 CAJA SECA • Retirala hoy mismo</span>
         </div>
-      );
-    }
+      </div>
+    </header>
 
-    function WordRotate({ words, duration = 2200 }) {
-      const [index, setIndex] = useState(0);
+    <!-- Main Hero Content -->
+    <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-4 flex-1 flex flex-col justify-between items-start text-left">
+      <div class="max-w-2xl pt-2 sm:pt-4 flex flex-col items-start gap-2">
+        <!-- Tag Badge -->
+        <div class="inline-flex items-center gap-2 bg-[#78B719]/25 border border-[#78B719] text-[#78B719] px-3.5 py-1 rounded-full text-xs sm:text-sm font-extrabold mb-1 shadow-md backdrop-blur-md">
+          ⭐ Estado 10/10 — Usado solo 3 veces
+        </div>
 
-      useEffect(() => {
-        const interval = setInterval(() => {
-          setIndex((prevIndex) => (prevIndex + 1) % words.length);
-        }, duration);
-        return () => clearInterval(interval);
-      }, [words, duration]);
+        <!-- H1 Title -->
+        <h1 class="text-[2.6rem] sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight leading-[1.05] drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)] mt-1">
+          20 m² de Grama Artificial
+        </h1>
 
-      return (
-        <span className="inline-flex items-baseline overflow-hidden mx-1.5">
-          <AnimatePresence mode="wait">
-            <motion.span
-              key={words[index]}
-              initial={{ opacity: 0, y: -15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 15 }}
-              transition={{ duration: 0.25 }}
-              className="inline-block text-[#FDC100]"
-            >
-              {words[index]}
-            </motion.span>
-          </AnimatePresence>
+        <!-- Rotating Subtitle -->
+        <h2 class="text-xl sm:text-3xl md:text-4xl font-bold text-emerald-100 tracking-tight leading-tight mt-2 drop-shadow-lg">
+          Dale <span id="rotatingWord" class="text-[#FDC100] transition-all duration-300 word-rotate-container">vida</span> a tu patio
+        </h2>
+      </div>
+
+      <!-- Pricing Callout -->
+      <div class="max-w-2xl pb-2 sm:pb-6 flex flex-col items-start gap-3 w-full">
+        <div class="flex items-center gap-3 text-sm sm:text-base font-bold drop-shadow-md">
+          <span class="text-emerald-100/90 font-medium">Nuevo + flete</span>
+          <span class="line-through text-red-400 font-extrabold">$260</span>
+        </div>
+
+        <div class="inline-flex items-center gap-3 sm:gap-4 bg-[#FDC100] text-[#041F18] px-5 py-2.5 sm:px-7 sm:py-3.5 rounded-2xl shadow-2xl font-black border-2 border-white/80 transition-transform hover:scale-[1.02]">
+          <span class="text-lg sm:text-2xl font-black tracking-wide">Oferta</span>
+          <span class="bg-[#041F18] text-[#FDC100] px-4 py-1.5 sm:px-5 sm:py-2 rounded-xl shadow-lg font-black text-2xl sm:text-4xl tracking-tight border border-emerald-500/30">
+            $140
+          </span>
+        </div>
+
+        <p class="text-xs sm:text-sm text-emerald-100/90 font-semibold drop-shadow-md flex items-center gap-2 mt-1">
+          <span class="w-2.5 h-2.5 rounded-full bg-[#78B719] shrink-0 animate-pulse shadow-[0_0_8px_#78B719]"></span>
+          <span>Trato personal directo • Sin pagos por adelantado</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="relative z-10 w-full py-2 text-center text-xs text-emerald-300/80 flex flex-col items-center gap-1">
+      <span>Desliza para conocer los detalles exactos</span>
+      <i data-lucide="chevron-down" class="w-4 h-4 animate-bounce text-[#FDC100]"></i>
+    </div>
+  </section>
+
+  <section class="py-10 sm:py-14 px-4 sm:px-6 md:px-12 relative overflow-hidden z-10">
+    <div class="max-w-4xl mx-auto relative z-10">
+      
+      <!-- Story Context Card -->
+      <div class="modern-glass-card rounded-2xl p-6 sm:p-8 mb-8 shadow-2xl">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="p-2.5 bg-[#78B719]/20 rounded-xl text-[#78B719]">
+            <i data-lucide="sparkles" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl sm:text-2xl font-bold text-white">
+            Tiempo de uso 
+          </h3>
+        </div>
+        <p class="text-emerald-100/90 text-base sm:text-lg leading-relaxed">
+          Se usó solo 3 ocasiones para armar una noche de cine al aire libre que no se repitió. Desde entonces está guardada bajo techo, limpia y lista para que alguien le de un buen uso en su patio.
+        </p>
+      </div>
+
+      <!-- Specs Header -->
+      <div class="text-center mb-6">
+        <span class="text-[#FDC100] text-xs font-bold tracking-widest uppercase">
+          Transparencia ante todo
         </span>
-      );
-    }
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-white mt-1">
+          Datos que necesitas saber
+        </h2>
+      </div>
 
-    function FadeIn({ children, delay = 0, yOffset = 25, className = "" }) {
-      return (
-        <motion.div
-          initial={{ opacity: 0, y: yOffset }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-30px" }}
-          transition={{ duration: 0.55, delay, ease: [0.21, 0.47, 0.32, 0.98] }}
-          className={className}
-        >
-          {children}
-        </motion.div>
-      );
-    }
-
-    function App() {
-      const [selectedMedia, setSelectedMedia] = useState(null);
-      const [openFaq, setOpenFaq] = useState(null);
-
-      useEffect(() => {
-        if (window.lucide) {
-          window.lucide.createIcons();
-        }
-      }, [selectedMedia, openFaq]);
-
-      const toggleFaq = (idx) => {
-        setOpenFaq(openFaq === idx ? null : idx);
-      };
-
-      const galleryItems = [
-        {
-          type: "image",
-          url: "https://pub-48e5e21731d74cf7a344201ee4e87636.r2.dev/gimg1.jpg",
-          title: "Vista frontal completa",
-          description: "Textura homogénea y tono verde natural impecable"
-        },
-        {
-          type: "image",
-          url: "https://pub-48e5e21731d74cf7a344201ee4e87636.r2.dev/gimg2.jpg",
-          title: "Vista completa de las 2 piezas extendidas",
-          description: "20 m² en total (2 piezas de 5m x 2m cada una)"
-        },
-        {
-          type: "image",
-          url: "https://pub-48e5e21731d74cf7a344201ee4e87636.r2.dev/gimg3.jpg",
-          title: "Desde otro ángulo",
-          description: "Detalle de caída, densidad y superficie completamente plana"
-        },
-        {
-          type: "video",
-          url: "https://pub-48e5e21731d74cf7a344201ee4e87636.r2.dev/grass dia.mp4",
-          title: "Video real del producto",
-          description: "Mírala en video a luz de día sin filtros ni ediciones"
-        }
-      ];
-
-      return (
-        <div className="min-h-screen bg-gradient-to-b from-[#041F18] via-[#08382C] to-[#041F18] text-white relative">
-
-          {/* Ambient Lighting Background Spheres */}
-          <div className="fixed top-20 left-10 w-96 h-96 bg-[#78B719]/10 rounded-full blur-[120px] pointer-events-none z-0" />
-          <div className="fixed top-1/2 right-10 w-96 h-96 bg-[#FDC100]/10 rounded-full blur-[140px] pointer-events-none z-0" />
-
-          {/* Hero Section */}
-          <section className="relative min-h-screen w-full flex flex-col justify-between overflow-hidden bg-[#041F18] z-10 pb-12">
-            {/* Background Video */}
-            <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover scale-105 filter brightness-105 contrast-105"
-              >
-                <source src="https://pub-48e5e21731d74cf7a344201ee4e87636.r2.dev/nuevo.mp4" type="video/mp4" />
-              </video>
-              <div className="absolute inset-0 left-gradient-mask" />
+      <!-- Specs Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+        <div class="modern-glass p-5 rounded-2xl hover:border-[#78B719]/50 transition-all h-full">
+          <div class="flex items-start gap-4">
+            <div class="p-3 bg-[#FDC100]/20 text-[#FDC100] rounded-xl shrink-0">
+              <i data-lucide="ruler" class="w-6 h-6"></i>
             </div>
-
-            <div className="absolute inset-0 z-1 pointer-events-none backdrop-blur-[2px] bottom-blur-mask" />
-
-            {/* Top Header / Location bar */}
-            <header className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 pt-4 pb-2 flex items-center justify-between">
-              <HoverBorderGradient containerClassName="shadow-lg">
-                <div className="flex items-center gap-2 text-xs sm:text-sm font-medium text-emerald-200">
-                  <span className="w-2 h-2 rounded-full bg-[#78B719] animate-ping" />
-                  <span>📍 CAJA SECA • Retirala hoy mismo</span>
-                </div>
-              </HoverBorderGradient>
-            </header>
-
-            {/* Main Hero Content */}
-            <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-4 flex-1 flex flex-col justify-between items-start text-left">
-              
-              {/* BLOQUE SUPERIOR: Badge + Título Principal + Subtítulo con palabra 'alegría' */}
-              <div className="max-w-2xl pt-2 sm:pt-4 flex flex-col items-start gap-2">
-                {/* Tag Badge */}
-                <div className="inline-flex items-center gap-2 bg-[#78B719]/25 border border-[#78B719] text-[#78B719] px-3.5 py-1 rounded-full text-xs sm:text-sm font-extrabold mb-1 shadow-md backdrop-blur-md">
-                  ⭐ Estado 10/10 — Usado solo 3 veces
-                </div>
-
-                {/* H1 Title */}
-                <h1 className="text-[2.6rem] sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight leading-[1.05] drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)] mt-1">
-                  20 m² de Grama Artificial
-                </h1>
-
-                {/* Subtítulo con "alegría" en reemplazo de "lujo" */}
-                <h2 className="text-xl sm:text-3xl md:text-4xl font-bold text-emerald-100 tracking-tight leading-tight mt-2 drop-shadow-lg">
-                  Dale <WordRotate words={["vida", "alegría", "color"]} /> a tu patio
-                </h2>
-              </div>
-
-              {/* BLOQUE INFERIOR: Precio + Aclaratoria */}
-              <div className="max-w-2xl pb-2 sm:pb-6 flex flex-col items-start gap-3 w-full">
-                <div className="flex items-center gap-3 text-sm sm:text-base font-bold drop-shadow-md">
-                  <span className="text-emerald-100/90 font-medium">Nuevo + flete</span>
-                  <span className="line-through text-red-400 font-extrabold">$260</span>
-                </div>
-
-                {/* Pricing Callout Badge */}
-                <div className="inline-flex items-center gap-3 sm:gap-4 bg-[#FDC100] text-[#041F18] px-5 py-2.5 sm:px-7 sm:py-3.5 rounded-2xl shadow-2xl font-black border-2 border-white/80 transition-transform hover:scale-[1.02]">
-                  <span className="text-lg sm:text-2xl font-black tracking-wide">Oferta</span>
-                  <span className="bg-[#041F18] text-[#FDC100] px-4 py-1.5 sm:px-5 sm:py-2 rounded-xl shadow-lg font-black text-2xl sm:text-4xl tracking-tight border border-emerald-500/30">
-                    $140
-                  </span>
-                </div>
-
-                {/* Subtexto aclaratorio */}
-                <p className="text-xs sm:text-sm text-emerald-100/90 font-semibold drop-shadow-md flex items-center gap-2 mt-1">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#78B719] shrink-0 animate-pulse shadow-[0_0_8px_#78B719]" />
-                  <span>Trato personal directo • Sin pagos por adelantado</span>
-                </p>
-              </div>
-
-            </div>
-
-            {/* Scroll Indicator */}
-            <div className="relative z-10 w-full py-2 text-center text-xs text-emerald-300/80 flex flex-col items-center gap-1">
-              <span>Desliza para conocer los detalles exactos</span>
-              <i data-lucide="chevron-down" className="w-4 h-4 animate-bounce text-[#FDC100]"></i>
-            </div>
-          </section>
-
-          {}
-          <section className="py-10 sm:py-14 px-4 sm:px-6 md:px-12 relative overflow-hidden z-10">
-            <div className="max-w-4xl mx-auto relative z-10">
-              
-              {/* Context Story Card */}
-              <FadeIn>
-                <div className="modern-glass-card rounded-2xl p-6 sm:p-8 mb-8 shadow-2xl">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="p-2.5 bg-[#78B719]/20 rounded-xl text-[#78B719]">
-                      <i data-lucide="sparkles" className="w-6 h-6"></i>
-                    </div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-white">
-                      Tiempo de uso 
-                    </h3>
-                  </div>
-                  <p className="text-emerald-100/90 text-base sm:text-lg leading-relaxed">
-                    Se usó solo 3 ocasiones para armar una noche de cine al aire libre que no se repitió. Desde entonces está guardada bajo techo, limpia y lista para que alguien le de un buen uso en su patio.
-                  </p>
-                </div>
-              </FadeIn>
-
-              {/* Specs Header */}
-              <FadeIn delay={0.1}>
-                <div className="text-center mb-6">
-                  <span className="text-[#FDC100] text-xs font-bold tracking-widest uppercase">
-                    Transparencia ante todo
-                  </span>
-                  <h2 className="text-2xl sm:text-4xl font-extrabold text-white mt-1">
-                    Datos que necesitas saber
-                  </h2>
-                </div>
-              </FadeIn>
-
-              {/* Specs Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                <FadeIn delay={0.1}>
-                  <div className="modern-glass p-5 rounded-2xl hover:border-[#78B719]/50 transition-all h-full">
-                    <div className="flex items-start gap-4">
-                      <div className="p-3 bg-[#FDC100]/20 text-[#FDC100] rounded-xl shrink-0">
-                        <i data-lucide="ruler" className="w-6 h-6"></i>
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-white text-lg mb-1"> Medidas</h3>
-                        <p className="text-emerald-100/80 text-sm leading-relaxed">
-                          <strong>2 piezas de 5 metros de largo × 2 metros de ancho</strong> (20 m² en total).
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </FadeIn>
-
-                <FadeIn delay={0.15}>
-                  <div className="modern-glass p-5 rounded-2xl hover:border-[#78B719]/50 transition-all h-full">
-                    <div className="flex items-start gap-4">
-                      <div className="p-3 bg-[#78B719]/20 text-[#78B719] rounded-xl shrink-0">
-                        <i data-lucide="leaf" className="w-6 h-6"></i>
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-white text-lg mb-1"> Fibra</h3>
-                        <p className="text-emerald-100/80 text-sm leading-relaxed">
-                          <strong>15 mm de altura</strong>, densa, fácil de barrer.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </FadeIn>
-
-                <FadeIn delay={0.2}>
-                  <div className="modern-glass p-5 rounded-2xl hover:border-amber-500/50 transition-all h-full">
-                    <div className="flex items-start gap-4">
-                      <div className="p-3 bg-amber-500/20 text-amber-300 rounded-xl shrink-0">
-                        <i data-lucide="cloud-rain" className="w-6 h-6"></i>
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-white text-lg mb-1"> Uso</h3>
-                        <p className="text-emerald-100/80 text-sm leading-relaxed">
-                          Siendo honesto <strong>no la recomiendo que se moje en la lluvia</strong>.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </FadeIn>
-
-                <FadeIn delay={0.25}>
-                  <div className="modern-glass p-5 rounded-2xl hover:border-emerald-400 transition-all h-full">
-                    <div className="flex items-start gap-4">
-                      <div className="p-3 bg-emerald-500/20 text-emerald-300 rounded-xl shrink-0">
-                        <i data-lucide="shield-check" className="w-6 h-6"></i>
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-white text-lg mb-1"> Trato 100% seguro</h3>
-                        <p className="text-emerald-100/80 text-sm leading-relaxed">
-                          <strong>Tú no pagas nada por adelantado.</strong> Vienes a mi casa en Caja Seca, la desenrollas, la revisas y solo pagas si te convence.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </FadeIn>
-              </div>
-            </div>
-          </section>
-
-          {}
-          <section className="py-10 sm:py-14 px-4 sm:px-6 md:px-12 relative z-10">
-            <div className="max-w-5xl mx-auto">
-              <FadeIn>
-                <div className="text-center max-w-3xl mx-auto mb-8">
-                  <span className="text-[#78B719] text-xs font-bold tracking-widest uppercase">
-                    Sin filtros, Sin edición
-                  </span>
-                  <h2 className="text-2xl sm:text-4xl font-extrabold text-white mt-1 mb-2">
-                    Míra como es
-                  </h2>
-                  <p className="text-emerald-100/80 text-base leading-relaxed">
-                    Así se veía la grama en su último uso. Fíjate en el color, la densidad y cómo queda completamente plana y pareja al extenderla.
-                  </p>
-                </div>
-              </FadeIn>
-
-              {/* Gallery Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                {galleryItems.map((item, index) => (
-                  <FadeIn key={index} delay={index * 0.1}>
-                    <div
-                      onClick={() => setSelectedMedia(item)}
-                      className="group cursor-pointer relative modern-glass-card rounded-2xl overflow-hidden hover:border-[#FDC100] transition-all duration-300 flex flex-col justify-between shadow-xl h-full"
-                    >
-                      <div className="relative aspect-video sm:aspect-square w-full overflow-hidden bg-black/60">
-                        {item.type === "image" ? (
-                          <img
-                            src={item.url}
-                            alt={item.title}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                            loading="lazy"
-                          />
-                        ) : (
-                          <div className="relative w-full h-full flex items-center justify-center bg-emerald-950">
-                            <video src={item.url} autoPlay loop muted playsInline className="w-full h-full object-cover opacity-70" />
-                            <div className="absolute inset-0 flex items-center justify-center">
-                              <div className="p-4 bg-[#FDC100] text-[#041F18] rounded-full shadow-2xl group-hover:scale-110 transition-transform">
-                                <i data-lucide="play" className="w-8 h-8 fill-current"></i>
-                              </div>
-                            </div>
-                          </div>
-                        )}
-
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
-
-                        <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs font-semibold">
-                          <span className="flex items-center gap-1.5 bg-black/60 px-2.5 py-1 rounded-md backdrop-blur-md">
-                            <i data-lucide={item.type === "image" ? "eye" : "play"} className="w-3.5 h-3.5 text-[#FDC100]"></i>
-                            <span>{item.type === "image" ? "Ver Foto" : "Video"}</span>
-                          </span>
-                          <i data-lucide="maximize-2" className="w-4 h-4 text-white/80 group-hover:text-[#FDC100] transition-colors"></i>
-                        </div>
-                      </div>
-
-                      <div className="p-4">
-                        <h4 className="font-bold text-white text-sm mb-1">{item.title}</h4>
-                        <p className="text-emerald-100/70 text-xs">{item.description}</p>
-                      </div>
-                    </div>
-                  </FadeIn>
-                ))}
-              </div>
-
-              {/* Gallery CTA */}
-              <FadeIn delay={0.3}>
-                <div className="mt-8 text-center">
-                  <a
-                    href={WHATSAPP_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="glow-yellow btn-shine inline-flex items-center justify-center gap-3 bg-[#FDC100] hover:bg-[#78B719] text-[#041F18] hover:text-white font-extrabold text-base sm:text-lg px-8 py-3.5 rounded-full shadow-2xl transition-all duration-300"
-                  >
-                    <WhatsAppIcon className="w-6 h-6" />
-                    <span>Quiero ir a verla</span>
-                  </a>
-                </div>
-              </FadeIn>
-            </div>
-          </section>
-
-          {}
-          <section className="py-10 sm:py-12 px-4 sm:px-6 md:px-12 bg-[#08382C]/60 border-t border-b border-white/10 z-10 relative">
-            <div className="max-w-3xl mx-auto text-center">
-              <FadeIn>
-                <div className="inline-block bg-[#FDC100]/20 text-[#FDC100] px-4 py-1.5 rounded-full mb-3 border border-[#FDC100]/40 text-xs font-bold tracking-wider uppercase">
-                  Siendo honesto
-                </div>
-                <h2 className="text-2xl sm:text-4xl font-extrabold text-white mb-4">
-                  ¿Por qué lo vendo?
-                </h2>
-                <div className="modern-glass p-6 sm:p-8 rounded-2xl text-left border border-white/15 hover:border-[#78B719]/50 transition-all">
-                  <p className="text-emerald-100 text-base sm:text-lg leading-relaxed">
-                    La compré para un proyecto de eventos que no siguió adelante. Se usó en 3 ocasiones. Por eso está 10/10, sin manchas de barro, sin bordes rotos, sin decolorar por sol. Tal como la ves en las fotos.
-                  </p>
-                </div>
-              </FadeIn>
-            </div>
-          </section>
-
-          <section className="py-10 sm:py-14 px-4 sm:px-6 md:px-12 relative z-10">
-            <div className="max-w-4xl mx-auto">
-              <FadeIn>
-                <div className="text-center mb-8">
-                  <h2 className="text-2xl sm:text-4xl font-extrabold text-white">
-                    Ojo con esto
-                  </h2>
-                  <p className="text-emerald-200/70 text-sm mt-1">
-                    Claridad ante todo
-                  </p>
-                </div>
-              </FadeIn>
-
-              <div className="space-y-4">
-                <FadeIn delay={0.1}>
-                  <div className="modern-glass bg-red-950/20 border border-red-500/30 hover:border-red-500/60 rounded-2xl p-6 sm:p-8 backdrop-blur-md shadow-xl transition-all">
-                    <h3 className="text-xl font-bold text-red-400 mb-4 flex items-center gap-2">
-                      <i data-lucide="x-circle" className="w-6 h-6"></i>
-                      <span>NO</span>
-                    </h3>
-                    <ul className="space-y-3 text-emerald-100/80 text-sm">
-                      <li className="flex items-start gap-3">
-                        <i data-lucide="x" className="w-5 h-5 text-red-400 shrink-0 mt-0.5"></i>
-                        <span>Soy tienda comercial, no entrego factura, ni tengo más grama, sólo la que ves.</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <i data-lucide="x" className="w-5 h-5 text-red-400 shrink-0 mt-0.5"></i>
-                        <span>Pido transferencias por adelantado "para apartar".</span>
-                      </li>
-                    </ul>
-                  </div>
-                </FadeIn>
-
-                {/* Transport Box */}
-                <FadeIn delay={0.2}>
-                  <div className="modern-glass bg-amber-500/10 border border-amber-500/40 hover:border-amber-400/70 rounded-2xl p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4 text-amber-200 backdrop-blur-md shadow-xl transition-all">
-                    <div className="p-3 bg-amber-500/20 rounded-xl text-amber-300 shrink-0">
-                      <i data-lucide="truck" className="w-8 h-8"></i>
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-white text-base mb-1">
-                        🚚 Necesitas un transporte
-                      </h4>
-                      <p className="text-sm text-amber-200/90 leading-relaxed">
-                        Para llevarlo enrollado. Ten en cuenta que son 2 m de ancho y calcula si en el carro puede ir o en una moto con carrucha también.
-                      </p>
-                    </div>
-                  </div>
-                </FadeIn>
-              </div>
-            </div>
-          </section>
-
-          {}
-          <section className="py-10 sm:py-14 px-4 sm:px-6 md:px-12 bg-[#08382C]/50 relative z-10">
-            <div className="max-w-4xl mx-auto">
-              <FadeIn>
-                <div className="text-center mb-8">
-                  <span className="text-[#FDC100] text-xs font-bold tracking-widest uppercase">
-                    Proceso Simple
-                  </span>
-                  <h2 className="text-2xl sm:text-4xl font-extrabold text-white mt-1">
-                    Haces lo siguiente
-                  </h2>
-                </div>
-              </FadeIn>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-                {[
-                  { step: "1", title: "Escribes", desc: "Al WhatsApp y coordinamos la hora." },
-                  { step: "2", title: "Vienes", desc: "A la dirección que te de." },
-                  { step: "3", title: "Revisas", desc: "La grama con calma: la desenrollas, chequeas color y textura." },
-                  { step: "4", title: "Pago", desc: "A la tasa del día, solo si estás satisfecho." }
-                ].map((item, idx) => (
-                  <FadeIn key={idx} delay={idx * 0.1}>
-                    <div className="modern-glass p-6 rounded-2xl border border-white/15 hover:border-[#78B719]/60 transition-all flex flex-col justify-between shadow-xl h-full">
-                      <div>
-                        <div className="w-10 h-10 rounded-xl bg-[#FDC100] text-[#041F18] font-extrabold text-lg flex items-center justify-center mb-4 shadow-lg">
-                          {item.step}
-                        </div>
-                        <h3 className="font-bold text-white text-lg mb-2">{item.title}</h3>
-                        <p className="text-emerald-100/80 text-sm leading-relaxed">{item.desc}</p>
-                      </div>
-                    </div>
-                  </FadeIn>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          {/* Preguntas Frecuentes */}
-          <section className="py-10 sm:py-14 px-4 sm:px-6 md:px-12 relative z-10">
-            <div className="max-w-3xl mx-auto">
-              <FadeIn>
-                <div className="text-center mb-8">
-                  <div className="inline-block p-2.5 bg-[#78B719]/20 text-[#78B719] rounded-2xl mb-2 border border-[#78B719]/30">
-                    <i data-lucide="help-circle" className="w-7 h-7"></i>
-                  </div>
-                  <h2 className="text-2xl sm:text-4xl font-extrabold text-white">
-                    Preguntas aclaradas
-                  </h2>
-                </div>
-              </FadeIn>
-
-              <div className="space-y-3">
-                {[
-                  { q: "¿Aceptas menos de $140?", a: "No." },
-                  { q: "¿Vendes una sola pieza de 5x20?", a: "No, vendo las 2 piezas juntas (20 m² en total)." },
-                  { q: "¿Cuánto tiempo de vida útil le queda?", a: "La grama está en muy buena calidad, rinde el tiempo y el cuidado que le des." },
-                  { q: "¿Necesito pegarla o fijarla al piso?", a: "No es obligatorio. Puedes dejarla suelta sobre una superficie plana." },
-                  { q: "¿Y si al llegar a mi casa le encuentro un defecto que no vi en la visita?", a: "Por eso el trato es así: la revisas en mi casa, con tus propias manos, antes de pagar un solo dólar. No hay sorpresas." },
-                  { q: "¿Envían fuera de Caja Seca?", a: "No, el retiro es únicamente en mi casa. No hago envíos." }
-                ].map((faq, idx) => (
-                  <FadeIn key={idx} delay={idx * 0.08}>
-                    <div className="modern-glass border border-white/15 hover:border-[#78B719]/50 rounded-2xl overflow-hidden transition-all shadow-lg">
-                      <button
-                        onClick={() => toggleFaq(idx)}
-                        className="w-full text-left p-4 sm:p-5 flex items-center justify-between font-bold text-white text-base sm:text-lg hover:bg-white/5 transition-colors gap-4"
-                      >
-                        <span>{faq.q}</span>
-                        <i data-lucide="chevron-down" className={`w-5 h-5 text-[#FDC100] shrink-0 transition-transform duration-300 ${openFaq === idx ? 'rotate-180' : ''}`}></i>
-                      </button>
-
-                      {openFaq === idx && (
-                        <div className="px-5 pb-4 pt-1 text-emerald-100/80 text-sm sm:text-base border-t border-white/10 leading-relaxed bg-black/20">
-                          {faq.a}
-                        </div>
-                      )}
-                    </div>
-                  </FadeIn>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          {/* Call to Action Final */}
-          <section className="relative py-12 sm:py-16 px-4 sm:px-6 md:px-12 overflow-hidden border-t-2 border-b-2 border-[#78B719]/40 z-10">
-            {/* Background Video */}
-            <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover scale-105 filter brightness-105 contrast-105"
-              >
-                <source src="https://pub-48e5e21731d74cf7a344201ee4e87636.r2.dev/nuevo.mp4" type="video/mp4" />
-              </video>
-              <div className="absolute inset-0 left-gradient-mask" />
-            </div>
-
-            <div className="absolute inset-0 z-1 pointer-events-none backdrop-blur-[2px] bottom-blur-mask" />
-
-            <div className="relative z-10 max-w-3xl mx-auto text-center space-y-5">
-              <FadeIn>
-                <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight drop-shadow-xl">
-                  ¿Quieres darle una nueva vida a tu espacio?
-                </h2>
-              </FadeIn>
-
-              <FadeIn delay={0.1}>
-                <p className="text-emerald-100/95 text-base sm:text-lg max-w-lg mx-auto font-medium drop-shadow-md">
-                  Si te gusta, escríbeme aquí abajo para la dirección  
-                </p>
-              </FadeIn>
-
-              <FadeIn delay={0.2}>
-                <div className="pt-1">
-                  <a
-                    href={WHATSAPP_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="glow-yellow btn-shine inline-flex items-center justify-center gap-3 bg-[#FDC100] hover:bg-[#78B719] text-[#041F18] hover:text-white font-extrabold text-lg sm:text-xl px-9 py-4 rounded-full shadow-2xl transition-all duration-300 transform hover:scale-105"
-                  >
-                    <WhatsAppIcon className="w-7 h-7" />
-                    <span>Quiero ir a verla</span>
-                  </a>
-                </div>
-              </FadeIn>
-
-              <FadeIn delay={0.25}>
-                <p className="text-xs sm:text-sm text-emerald-200/90 font-medium drop-shadow flex items-center justify-center gap-2 pt-1">
-                  <span className="w-2 h-2 rounded-full bg-[#78B719] animate-pulse"></span>
-                  <span>Pago únicamente en persona al revisar el producto</span>
-                </p>
-              </FadeIn>
-            </div>
-          </section>
-
-          {/* Footer */}
-          <footer className="py-6 px-4 border-t border-white/10 text-center relative z-10 bg-[#021410]">
-            <div className="max-w-xl mx-auto space-y-3 text-[11px] text-gray-400/60 leading-relaxed font-normal select-none">
-              <p>© 2026 Grama Artificial. Todos los derechos reservados.</p>
-              <div className="flex items-center justify-center gap-3">
-                <a
-                  href="https://www.privacypolicies.com/live/4dac14d8-41ec-494c-a0d8-0a50368be1dd"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:underline hover:text-gray-300 transition-colors"
-                >
-                  Política de Privacidad
-                </a>
-                <span>•</span>
-                <a
-                  href="https://docs.google.com/document/d/1EOQxVNeuMS02WxYbcEEFARIPEc8XWqQb3T07CRDOr8Q/edit?usp=sharing"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:underline hover:text-gray-300 transition-colors"
-                >
-                  Términos y Condiciones
-                </a>
-              </div>
-              <p className="max-w-md mx-auto pt-1">
-                Este sitio web no forma parte del sitio web de Meta ni de Meta Platforms, Inc. Además, este sitio NO está respaldado por Meta de ninguna manera. FACEBOOK y META son marcas registradas de Meta Platforms, Inc.
+            <div>
+              <h3 class="font-bold text-white text-lg mb-1">Medidas</h3>
+              <p class="text-emerald-100/80 text-sm leading-relaxed">
+                <strong>2 piezas de 5 metros de largo × 2 metros de ancho</strong> (20 m² en total).
               </p>
             </div>
-          </footer>
-
-          {/* Lightbox Modal */}
-          <AnimatePresence>
-            {selectedMedia && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                onClick={() => setSelectedMedia(null)}
-                className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md p-4 sm:p-8 flex items-center justify-center cursor-pointer"
-              >
-                <div
-                  onClick={(e) => e.stopPropagation()}
-                  className="relative max-w-4xl w-full modern-glass rounded-2xl overflow-hidden shadow-2xl border border-white/20 cursor-default"
-                >
-                  <button
-                    onClick={() => setSelectedMedia(null)}
-                    className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/70 text-white flex items-center justify-center hover:bg-[#FDC100] hover:text-[#041F18] transition-colors"
-                  >
-                    <i data-lucide="x" className="w-6 h-6"></i>
-                  </button>
-
-                  <div className="relative aspect-video w-full bg-black flex items-center justify-center">
-                    {selectedMedia.type === "image" ? (
-                      <img
-                        src={selectedMedia.url}
-                        alt={selectedMedia.title}
-                        className="max-h-[75vh] w-auto object-contain"
-                      />
-                    ) : (
-                      <video
-                        src={selectedMedia.url}
-                        controls
-                        autoPlay
-                        className="max-h-[75vh] w-full object-contain"
-                      />
-                    )}
-                  </div>
-
-                  <div className="p-6 bg-[#041F18]">
-                    <h3 className="text-xl font-bold text-white mb-1">{selectedMedia.title}</h3>
-                    <p className="text-emerald-200/80 text-sm">{selectedMedia.description}</p>
-                  </div>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-
+          </div>
         </div>
-      );
+
+        <div class="modern-glass p-5 rounded-2xl hover:border-[#78B719]/50 transition-all h-full">
+          <div class="flex items-start gap-4">
+            <div class="p-3 bg-[#78B719]/20 text-[#78B719] rounded-xl shrink-0">
+              <i data-lucide="leaf" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-white text-lg mb-1">Fibra</h3>
+              <p class="text-emerald-100/80 text-sm leading-relaxed">
+                <strong>15 mm de altura</strong>, densa, fácil de barrer.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="modern-glass p-5 rounded-2xl hover:border-amber-500/50 transition-all h-full">
+          <div class="flex items-start gap-4">
+            <div class="p-3 bg-amber-500/20 text-amber-300 rounded-xl shrink-0">
+              <i data-lucide="cloud-rain" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-white text-lg mb-1">Uso</h3>
+              <p class="text-emerald-100/80 text-sm leading-relaxed">
+                Siendo honesto <strong>no la recomiendo que se moje en la lluvia</strong>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="modern-glass p-5 rounded-2xl hover:border-emerald-400 transition-all h-full">
+          <div class="flex items-start gap-4">
+            <div class="p-3 bg-emerald-500/20 text-emerald-300 rounded-xl shrink-0">
+              <i data-lucide="shield-check" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-white text-lg mb-1">Trato 100% seguro</h3>
+              <p class="text-emerald-100/80 text-sm leading-relaxed">
+                <strong>Tú no pagas nada por adelantado.</strong> Vienes a mi casa en Caja Seca, la desenrollas, la revisas y solo pagas si te convence.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-10 sm:py-14 px-4 sm:px-6 md:px-12 relative z-10">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-8">
+        <span class="text-[#78B719] text-xs font-bold tracking-widest uppercase">
+          Sin filtros, Sin edición
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-white mt-1 mb-2">
+          Míra como es
+        </h2>
+        <p class="text-emerald-100/80 text-base leading-relaxed">
+          Así se veía la grama en su último uso. Fíjate en el color, la densidad y cómo queda completamente plana y pareja al extenderla.
+        </p>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        
+        <!-- Gallery Item 1 -->
+        <div onclick="openLightbox('image', 'https://pub-48e5e21731d74cf7a344201ee4e87636.r2.dev/gimg1.jpg', 'Vista frontal completa', 'Textura homogénea y tono verde natural impecable')" class="group cursor-pointer relative modern-glass-card rounded-2xl overflow-hidden hover:border-[#FDC100] transition-all duration-300 flex flex-col justify-between shadow-xl h-full">
+          <div class="relative aspect-video sm:aspect-square w-full overflow-hidden bg-black/60">
+            <img src="https://pub-48e5e21731d74cf7a344201ee4e87636.r2.dev/gimg1.jpg" alt="Vista frontal" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+            <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs font-semibold">
+              <span class="flex items-center gap-1.5 bg-black/60 px-2.5 py-1 rounded-md backdrop-blur-md">
+                <i data-lucide="eye" class="w-3.5 h-3.5 text-[#FDC100]"></i>
+                <span>Ver Foto</span>
+              </span>
+              <i data-lucide="maximize-2" class="w-4 h-4 text-white/80 group-hover:text-[#FDC100] transition-colors"></i>
+            </div>
+          </div>
+          <div class="p-4">
+            <h4 class="font-bold text-white text-sm mb-1">Vista frontal completa</h4>
+            <p class="text-emerald-100/70 text-xs">Textura homogénea y tono verde natural impecable</p>
+          </div>
+        </div>
+
+        <!-- Gallery Item 2 -->
+        <div onclick="openLightbox('image', 'https://pub-48e5e21731d74cf7a344201ee4e87636.r2.dev/gimg2.jpg', 'Vista completa de las 2 piezas extendidas', '20 m² en total (2 piezas de 5m x 2m cada una)')" class="group cursor-pointer relative modern-glass-card rounded-2xl overflow-hidden hover:border-[#FDC100] transition-all duration-300 flex flex-col justify-between shadow-xl h-full">
+          <div class="relative aspect-video sm:aspect-square w-full overflow-hidden bg-black/60">
+            <img src="https://pub-48e5e21731d74cf7a344201ee4e87636.r2.dev/gimg2.jpg" alt="Extendidas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+            <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs font-semibold">
+              <span class="flex items-center gap-1.5 bg-black/60 px-2.5 py-1 rounded-md backdrop-blur-md">
+                <i data-lucide="eye" class="w-3.5 h-3.5 text-[#FDC100]"></i>
+                <span>Ver Foto</span>
+              </span>
+              <i data-lucide="maximize-2" class="w-4 h-4 text-white/80 group-hover:text-[#FDC100] transition-colors"></i>
+            </div>
+          </div>
+          <div class="p-4">
+            <h4 class="font-bold text-white text-sm mb-1">Vista completa de 2 piezas</h4>
+            <p class="text-emerald-100/70 text-xs">20 m² en total (2 piezas de 5m x 2m cada una)</p>
+          </div>
+        </div>
+
+        <!-- Gallery Item 3 -->
+        <div onclick="openLightbox('image', 'https://pub-48e5e21731d74cf7a344201ee4e87636.r2.dev/gimg3.jpg', 'Desde otro ángulo', 'Detalle de caída, densidad y superficie completamente plana')" class="group cursor-pointer relative modern-glass-card rounded-2xl overflow-hidden hover:border-[#FDC100] transition-all duration-300 flex flex-col justify-between shadow-xl h-full">
+          <div class="relative aspect-video sm:aspect-square w-full overflow-hidden bg-black/60">
+            <img src="https://pub-48e5e21731d74cf7a344201ee4e87636.r2.dev/gimg3.jpg" alt="Ángulo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+            <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs font-semibold">
+              <span class="flex items-center gap-1.5 bg-black/60 px-2.5 py-1 rounded-md backdrop-blur-md">
+                <i data-lucide="eye" class="w-3.5 h-3.5 text-[#FDC100]"></i>
+                <span>Ver Foto</span>
+              </span>
+              <i data-lucide="maximize-2" class="w-4 h-4 text-white/80 group-hover:text-[#FDC100] transition-colors"></i>
+            </div>
+          </div>
+          <div class="p-4">
+            <h4 class="font-bold text-white text-sm mb-1">Desde otro ángulo</h4>
+            <p class="text-emerald-100/70 text-xs">Detalle de caída, densidad y superficie plana</p>
+          </div>
+        </div>
+
+        <!-- Gallery Item 4 (Video) -->
+        <div onclick="openLightbox('video', 'https://pub-48e5e21731d74cf7a344201ee4e87636.r2.dev/grass dia.mp4', 'Video real del producto', 'Mírala en video a luz de día sin filtros ni ediciones')" class="group cursor-pointer relative modern-glass-card rounded-2xl overflow-hidden hover:border-[#FDC100] transition-all duration-300 flex flex-col justify-between shadow-xl h-full">
+          <div class="relative aspect-video sm:aspect-square w-full overflow-hidden bg-emerald-950">
+            <video src="https://pub-48e5e21731d74cf7a344201ee4e87636.r2.dev/grass dia.mp4" autoPlay loop muted playsInline class="w-full h-full object-cover opacity-70"></video>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="p-4 bg-[#FDC100] text-[#041F18] rounded-full shadow-2xl group-hover:scale-110 transition-transform">
+                <i data-lucide="play" class="w-8 h-8 fill-current"></i>
+              </div>
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+            <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs font-semibold">
+              <span class="flex items-center gap-1.5 bg-black/60 px-2.5 py-1 rounded-md backdrop-blur-md">
+                <i data-lucide="play" class="w-3.5 h-3.5 text-[#FDC100]"></i>
+                <span>Video</span>
+              </span>
+              <i data-lucide="maximize-2" class="w-4 h-4 text-white/80 group-hover:text-[#FDC100] transition-colors"></i>
+            </div>
+          </div>
+          <div class="p-4">
+            <h4 class="font-bold text-white text-sm mb-1">Video real del producto</h4>
+            <p class="text-emerald-100/70 text-xs">Mírala en video a luz de día sin filtros</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mt-8 text-center">
+        <a
+          href="https://wa.me/584142298507?text=Hola.%20Vi%20la%20grama%20artificial.%20Quiero%20coordinar%20para%20ir%20a%20verla%20hoy."
+          target="_blank"
+          rel="noopener noreferrer"
+          onclick="fbq('track', 'Lead');"
+          class="glow-yellow btn-shine inline-flex items-center justify-center gap-3 bg-[#FDC100] hover:bg-[#78B719] text-[#041F18] hover:text-white font-extrabold text-base sm:text-lg px-8 py-3.5 rounded-full shadow-2xl transition-all duration-300"
+        >
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.063 2.876 1.21 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.99c-.002 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c-.001 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+          </svg>
+          <span>Quiero ir a verla</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-10 sm:py-12 px-4 sm:px-6 md:px-12 bg-[#08382C]/60 border-t border-b border-white/10 z-10 relative">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="inline-block bg-[#FDC100]/20 text-[#FDC100] px-4 py-1.5 rounded-full mb-3 border border-[#FDC100]/40 text-xs font-bold tracking-wider uppercase">
+        Siendo honesto
+      </div>
+      <h2 class="text-2xl sm:text-4xl font-extrabold text-white mb-4">
+        ¿Por qué lo vendo?
+      </h2>
+      <div class="modern-glass p-6 sm:p-8 rounded-2xl text-left border border-white/15 hover:border-[#78B719]/50 transition-all">
+        <p class="text-emerald-100 text-base sm:text-lg leading-relaxed">
+          La compré para un proyecto de eventos que no siguió adelante. Se usó en 3 ocasiones. Por eso está 10/10, sin manchas de barro, sin bordes rotos, sin decolorar por sol. Tal como la ves en las fotos.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-10 sm:py-14 px-4 sm:px-6 md:px-12 relative z-10">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-8">
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-white">
+          Ojo con esto
+        </h2>
+        <p class="text-emerald-200/70 text-sm mt-1">
+          Claridad ante todo
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        <div class="modern-glass bg-red-950/20 border border-red-500/30 hover:border-red-500/60 rounded-2xl p-6 sm:p-8 backdrop-blur-md shadow-xl transition-all">
+          <h3 class="text-xl font-bold text-red-400 mb-4 flex items-center gap-2">
+            <i data-lucide="x-circle" class="w-6 h-6"></i>
+            <span>NO</span>
+          </h3>
+          <ul class="space-y-3 text-emerald-100/80 text-sm">
+            <li class="flex items-start gap-3">
+              <i data-lucide="x" class="w-5 h-5 text-red-400 shrink-0 mt-0.5"></i>
+              <span>Soy tienda comercial, no entrego factura, ni tengo más grama, sólo la que ves.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="x" class="w-5 h-5 text-red-400 shrink-0 mt-0.5"></i>
+              <span>Pido transferencias por adelantado "para apartar".</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="modern-glass bg-amber-500/10 border border-amber-500/40 hover:border-amber-400/70 rounded-2xl p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4 text-amber-200 backdrop-blur-md shadow-xl transition-all">
+          <div class="p-3 bg-amber-500/20 rounded-xl text-amber-300 shrink-0">
+            <i data-lucide="truck" class="w-8 h-8"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-white text-base mb-1">
+              🚚 Necesitas un transporte
+            </h4>
+            <p class="text-sm text-amber-200/90 leading-relaxed">
+              Para llevarlo enrollado. Ten en cuenta que son 2 m de ancho y calcula si en el carro puede ir o en una moto con carrucha también.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-10 sm:py-14 px-4 sm:px-6 md:px-12 bg-[#08382C]/50 relative z-10">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-8">
+        <span class="text-[#FDC100] text-xs font-bold tracking-widest uppercase">
+          Proceso Simple
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-white mt-1">
+          Haces lo siguiente
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div class="modern-glass p-6 rounded-2xl border border-white/15 hover:border-[#78B719]/60 transition-all flex flex-col justify-between shadow-xl h-full">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-[#FDC100] text-[#041F18] font-extrabold text-lg flex items-center justify-center mb-4 shadow-lg">1</div>
+            <h3 class="font-bold text-white text-lg mb-2">Escribes</h3>
+            <p class="text-emerald-100/80 text-sm leading-relaxed">Al WhatsApp y coordinamos la hora.</p>
+          </div>
+        </div>
+
+        <div class="modern-glass p-6 rounded-2xl border border-white/15 hover:border-[#78B719]/60 transition-all flex flex-col justify-between shadow-xl h-full">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-[#FDC100] text-[#041F18] font-extrabold text-lg flex items-center justify-center mb-4 shadow-lg">2</div>
+            <h3 class="font-bold text-white text-lg mb-2">Vienes</h3>
+            <p class="text-emerald-100/80 text-sm leading-relaxed">A la dirección que te de.</p>
+          </div>
+        </div>
+
+        <div class="modern-glass p-6 rounded-2xl border border-white/15 hover:border-[#78B719]/60 transition-all flex flex-col justify-between shadow-xl h-full">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-[#FDC100] text-[#041F18] font-extrabold text-lg flex items-center justify-center mb-4 shadow-lg">3</div>
+            <h3 class="font-bold text-white text-lg mb-2">Revisas</h3>
+            <p class="text-emerald-100/80 text-sm leading-relaxed">La grama con calma: la desenrollas, chequeas color y textura.</p>
+          </div>
+        </div>
+
+        <div class="modern-glass p-6 rounded-2xl border border-white/15 hover:border-[#78B719]/60 transition-all flex flex-col justify-between shadow-xl h-full">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-[#FDC100] text-[#041F18] font-extrabold text-lg flex items-center justify-center mb-4 shadow-lg">4</div>
+            <h3 class="font-bold text-white text-lg mb-2">Pago</h3>
+            <p class="text-emerald-100/80 text-sm leading-relaxed">A la tasa del día, solo si estás satisfecho.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-10 sm:py-14 px-4 sm:px-6 md:px-12 relative z-10">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-8">
+        <div class="inline-block p-2.5 bg-[#78B719]/20 text-[#78B719] rounded-2xl mb-2 border border-[#78B719]/30">
+          <i data-lucide="help-circle" class="w-7 h-7"></i>
+        </div>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-white">
+          Preguntas aclaradas
+        </h2>
+      </div>
+
+      <div class="space-y-3">
+        
+        <!-- FAQ Item 1 -->
+        <div class="modern-glass border border-white/15 hover:border-[#78B719]/50 rounded-2xl overflow-hidden transition-all shadow-lg">
+          <button onclick="toggleFaq('faq-1', 'icon-1')" class="w-full text-left p-4 sm:p-5 flex items-center justify-between font-bold text-white text-base sm:text-lg hover:bg-white/5 transition-colors gap-4">
+            <span>¿Aceptas menos de $140?</span>
+            <i id="icon-1" data-lucide="chevron-down" class="w-5 h-5 text-[#FDC100] shrink-0 transition-transform duration-300"></i>
+          </button>
+          <div id="faq-1" class="hidden px-5 pb-4 pt-1 text-emerald-100/80 text-sm sm:text-base border-t border-white/10 leading-relaxed bg-black/20">
+            No.
+          </div>
+        </div>
+
+        <!-- FAQ Item 2 -->
+        <div class="modern-glass border border-white/15 hover:border-[#78B719]/50 rounded-2xl overflow-hidden transition-all shadow-lg">
+          <button onclick="toggleFaq('faq-2', 'icon-2')" class="w-full text-left p-4 sm:p-5 flex items-center justify-between font-bold text-white text-base sm:text-lg hover:bg-white/5 transition-colors gap-4">
+            <span>¿Vendes una sola pieza de 5x20?</span>
+            <i id="icon-2" data-lucide="chevron-down" class="w-5 h-5 text-[#FDC100] shrink-0 transition-transform duration-300"></i>
+          </button>
+          <div id="faq-2" class="hidden px-5 pb-4 pt-1 text-emerald-100/80 text-sm sm:text-base border-t border-white/10 leading-relaxed bg-black/20">
+            No, vendo las 2 piezas juntas (20 m² en total).
+          </div>
+        </div>
+
+        <!-- FAQ Item 3 -->
+        <div class="modern-glass border border-white/15 hover:border-[#78B719]/50 rounded-2xl overflow-hidden transition-all shadow-lg">
+          <button onclick="toggleFaq('faq-3', 'icon-3')" class="w-full text-left p-4 sm:p-5 flex items-center justify-between font-bold text-white text-base sm:text-lg hover:bg-white/5 transition-colors gap-4">
+            <span>¿Cuánto tiempo de vida útil le queda?</span>
+            <i id="icon-3" data-lucide="chevron-down" class="w-5 h-5 text-[#FDC100] shrink-0 transition-transform duration-300"></i>
+          </button>
+          <div id="faq-3" class="hidden px-5 pb-4 pt-1 text-emerald-100/80 text-sm sm:text-base border-t border-white/10 leading-relaxed bg-black/20">
+            La grama está en muy buena calidad, rinde el tiempo y el cuidado que le des.
+          </div>
+        </div>
+
+        <!-- FAQ Item 4 -->
+        <div class="modern-glass border border-white/15 hover:border-[#78B719]/50 rounded-2xl overflow-hidden transition-all shadow-lg">
+          <button onclick="toggleFaq('faq-4', 'icon-4')" class="w-full text-left p-4 sm:p-5 flex items-center justify-between font-bold text-white text-base sm:text-lg hover:bg-white/5 transition-colors gap-4">
+            <span>¿Necesito pegarla o fijarla al piso?</span>
+            <i id="icon-4" data-lucide="chevron-down" class="w-5 h-5 text-[#FDC100] shrink-0 transition-transform duration-300"></i>
+          </button>
+          <div id="faq-4" class="hidden px-5 pb-4 pt-1 text-emerald-100/80 text-sm sm:text-base border-t border-white/10 leading-relaxed bg-black/20">
+            No es obligatorio. Puedes dejarla suelta sobre una superficie plana.
+          </div>
+        </div>
+
+        <!-- FAQ Item 5 -->
+        <div class="modern-glass border border-white/15 hover:border-[#78B719]/50 rounded-2xl overflow-hidden transition-all shadow-lg">
+          <button onclick="toggleFaq('faq-5', 'icon-5')" class="w-full text-left p-4 sm:p-5 flex items-center justify-between font-bold text-white text-base sm:text-lg hover:bg-white/5 transition-colors gap-4">
+            <span>¿Y si al llegar a mi casa le encuentro un defecto que no vi en la visita?</span>
+            <i id="icon-5" data-lucide="chevron-down" class="w-5 h-5 text-[#FDC100] shrink-0 transition-transform duration-300"></i>
+          </button>
+          <div id="faq-5" class="hidden px-5 pb-4 pt-1 text-emerald-100/80 text-sm sm:text-base border-t border-white/10 leading-relaxed bg-black/20">
+            Por eso el trato es así: la revisas en mi casa, con tus propias manos, antes de pagar un solo dólar. No hay sorpresas.
+          </div>
+        </div>
+
+        <!-- FAQ Item 6 -->
+        <div class="modern-glass border border-white/15 hover:border-[#78B719]/50 rounded-2xl overflow-hidden transition-all shadow-lg">
+          <button onclick="toggleFaq('faq-6', 'icon-6')" class="w-full text-left p-4 sm:p-5 flex items-center justify-between font-bold text-white text-base sm:text-lg hover:bg-white/5 transition-colors gap-4">
+            <span>¿Envían fuera de Caja Seca?</span>
+            <i id="icon-6" data-lucide="chevron-down" class="w-5 h-5 text-[#FDC100] shrink-0 transition-transform duration-300"></i>
+          </button>
+          <div id="faq-6" class="hidden px-5 pb-4 pt-1 text-emerald-100/80 text-sm sm:text-base border-t border-white/10 leading-relaxed bg-black/20">
+            No, el retiro es únicamente en mi casa. No hago envíos.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="relative py-12 sm:py-16 px-4 sm:px-6 md:px-12 overflow-hidden border-t-2 border-b-2 border-[#78B719]/40 z-10">
+    <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+      <video autoPlay loop muted playsInline class="w-full h-full object-cover scale-105 filter brightness-105 contrast-105">
+        <source src="https://pub-48e5e21731d74cf7a344201ee4e87636.r2.dev/nuevo.mp4" type="video/mp4">
+      </video>
+      <div class="absolute inset-0 left-gradient-mask"></div>
+    </div>
+
+    <div class="absolute inset-0 z-1 pointer-events-none backdrop-blur-[2px] bottom-blur-mask"></div>
+
+    <div class="relative z-10 max-w-3xl mx-auto text-center space-y-5">
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight drop-shadow-xl">
+        ¿Quieres darle una nueva vida a tu espacio?
+      </h2>
+
+      <p class="text-emerald-100/95 text-base sm:text-lg max-w-lg mx-auto font-medium drop-shadow-md">
+        Si te gusta, escríbeme aquí abajo para la dirección  
+      </p>
+
+      <div class="pt-1">
+        <a
+          href="https://wa.me/584142298507?text=Hola.%20Vi%20la%20grama%20artificial.%20Quiero%20coordinar%20para%20ir%20a%20verla%20hoy."
+          target="_blank"
+          rel="noopener noreferrer"
+          onclick="fbq('track', 'Lead');"
+          class="glow-yellow btn-shine inline-flex items-center justify-center gap-3 bg-[#FDC100] hover:bg-[#78B719] text-[#041F18] hover:text-white font-extrabold text-lg sm:text-xl px-9 py-4 rounded-full shadow-2xl transition-all duration-300 transform hover:scale-105"
+        >
+          <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.063 2.876 1.21 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.99c-.002 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c-.001 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+          </svg>
+          <span>Quiero ir a verla</span>
+        </a>
+      </div>
+
+      <p class="text-xs sm:text-sm text-emerald-200/90 font-medium drop-shadow flex items-center justify-center gap-2 pt-1">
+        <span class="w-2 h-2 rounded-full bg-[#78B719] animate-pulse"></span>
+        <span>Pago únicamente en persona al revisar el producto</span>
+      </p>
+    </div>
+  </section>
+
+  <footer class="py-6 px-4 border-t border-white/10 text-center relative z-10 bg-[#021410]">
+    <div class="max-w-xl mx-auto space-y-3 text-[11px] text-gray-400/60 leading-relaxed font-normal select-none">
+      <p>© 2026 Grama Artificial. Todos los derechos reservados.</p>
+      <div class="flex items-center justify-center gap-3">
+        <a href="https://www.privacypolicies.com/live/4dac14d8-41ec-494c-a0d8-0a50368be1dd" target="_blank" rel="noopener noreferrer" class="hover:underline hover:text-gray-300 transition-colors">
+          Política de Privacidad
+        </a>
+        <span>•</span>
+        <a href="https://docs.google.com/document/d/1EOQxVNeuMS02WxYbcEEFARIPEc8XWqQb3T07CRDOr8Q/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:underline hover:text-gray-300 transition-colors">
+          Términos y Condiciones
+        </a>
+      </div>
+      <p class="max-w-md mx-auto pt-1">
+        Este sitio web no forma parte del sitio web de Meta ni de Meta Platforms, Inc. Además, este sitio NO está respaldado por Meta de ninguna manera. FACEBOOK y META son marcas registradas de Meta Platforms, Inc.
+      </p>
+    </div>
+  </footer>
+
+  <div id="lightboxModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md p-4 sm:p-8 hidden items-center justify-center cursor-pointer" onclick="closeLightbox()">
+    <div class="relative max-w-4xl w-full modern-glass rounded-2xl overflow-hidden shadow-2xl border border-white/20 cursor-default" onclick="event.stopPropagation()">
+      <button onclick="closeLightbox()" class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/70 text-white flex items-center justify-center hover:bg-[#FDC100] hover:text-[#041F18] transition-colors">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+
+      <div id="lightboxContent" class="relative aspect-video w-full bg-black flex items-center justify-center">
+        <!-- Media inserted via JS -->
+      </div>
+
+      <div class="p-6 bg-[#041F18]">
+        <h3 id="lightboxTitle" class="text-xl font-bold text-white mb-1"></h3>
+        <p id="lightboxDescription" class="text-emerald-200/80 text-sm"></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Initialize Lucide Icons
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+    });
+
+    // Subtitle Word Rotator
+    const words = ["vida", "alegría", "color"];
+    let wordIndex = 0;
+    const rotatingEl = document.getElementById('rotatingWord');
+
+    setInterval(() => {
+      wordIndex = (wordIndex + 1) % words.length;
+      if (rotatingEl) {
+        rotatingEl.style.opacity = '0';
+        rotatingEl.style.transform = 'translateY(-10px)';
+        setTimeout(() => {
+          rotatingEl.textContent = words[wordIndex];
+          rotatingEl.style.opacity = '1';
+          rotatingEl.style.transform = 'translateY(0)';
+        }, 150);
+      }
+    }, 2200);
+
+    // FAQ Accordion Toggle
+    function toggleFaq(contentId, iconId) {
+      const contentEl = document.getElementById(contentId);
+      const iconEl = document.getElementById(iconId);
+      
+      if (contentEl.classList.contains('hidden')) {
+        contentEl.classList.remove('hidden');
+        if (iconEl) iconEl.style.transform = 'rotate(180deg)';
+      } else {
+        contentEl.classList.add('hidden');
+        if (iconEl) iconEl.style.transform = 'rotate(0deg)';
+      }
     }
 
-    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+    // Lightbox Functionality
+    function openLightbox(type, url, title, description) {
+      const modal = document.getElementById('lightboxModal');
+      const container = document.getElementById('lightboxContent');
+      const titleEl = document.getElementById('lightboxTitle');
+      const descEl = document.getElementById('lightboxDescription');
+
+      titleEl.textContent = title;
+      descEl.textContent = description;
+
+      if (type === 'image') {
+        container.innerHTML = `<img src="${url}" alt="${title}" class="max-h-[75vh] w-auto object-contain" />`;
+      } else {
+        container.innerHTML = `<video src="${url}" controls autoPlay class="max-h-[75vh] w-full object-contain"></video>`;
+      }
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeLightbox() {
+      const modal = document.getElementById('lightboxModal');
+      const container = document.getElementById('lightboxContent');
+      container.innerHTML = '';
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
   </script>
 </body>
 </html>
